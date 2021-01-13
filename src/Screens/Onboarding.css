@@ -1,0 +1,115 @@
+.Onboarding {
+    background: #262A41 no-repeat ;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.container{
+    margin-left: 5rem;
+    margin-right: 5rem;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 9.188rem; */
+}
+.name-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.welcome-name{
+    color: #fff;
+    font-size: 2rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 200;
+    letter-spacing: -0.05px;
+    margin-right: 11px;
+    opacity: 1;
+}
+/* #name {
+    font-size: 1rem;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.04px;
+    color: #FFFFFF;
+    opacity: 1;
+} */
+.welcome-text {
+    /* text-align: left; */
+    /* font-size: 1.8301610541727673vw; */
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.23px;
+    color: #FFFFFF;
+    opacity: 0.66;
+    margin-top: 22px;
+}
+/* .user-input{
+    height: 50px;
+    width: 622px;
+    background: #3C3F54 0% 0% no-repeat padding-box;
+    border: 1px solid #3C3F54;
+    border-radius: 1.2rem;
+    opacity: 1;
+} */
+.show-users{
+    /* text-align: left; */
+    /* font-size: 1.610541727672035vw; */
+    font-size: 0.75rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02px;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+.gender-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.gender-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    margin-right: 1.4rem;
+}
+.gender{
+    /* width: 9.150805270863836vw;
+    height: 8.418740849194728vw; */
+    width: 4rem;
+    height: 4rem;
+    background: #F935A9 0% 0% no-repeat padding-box;
+    /* border-radius: 2.049780380673499vw; */
+    border-radius: 0.7rem;
+    opacity: 1;
+    /* margin-right: 2.1961932650073206vw; */
+    /* margin-right: 0.5rem; */
+}
+@media(max-width: 500px) {
+    .name{
+        font-size: 1.5rem;
+    }
+    .gender-section{
+        /* width: 80%; */
+        /* justify-content: space-between; */
+        margin: 1rem;
+    }
+    .container{
+        margin: 2rem;
+    }
+    .gender-container{
+        margin-right: 1.4rem;
+    }
+    .gender{
+        height: 3rem;
+        width: 3rem;
+    }
+}

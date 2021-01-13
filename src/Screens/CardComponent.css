@@ -1,0 +1,98 @@
+.CardComponent{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background: #F7F7FF no-repeat;
+    border: 1px solid #707070;
+    padding-left: 3rem;
+    padding-top: 1.5rem;
+    padding-right: 3rem;
+    padding-bottom: 1.5rem;
+    /* border-radius: 2.049780380673499vw; */
+    /* border-radius: 28px; */
+    opacity: 1;
+    /* padding-right: 6.076134699853587vw;
+    padding-top: 4.758418740849195vw;
+    padding-left: 7.46705710102489vw;
+    padding-bottom: 3.6603221083455346vw; */
+    width: 100%;
+    height: 100vh;
+    /* margin: 1.0980966325036603vw; */
+}
+.header{
+    /* text-align: left; */
+    font-size: 1.5rem;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.04px;
+    color: #262A41;
+    opacity: 1;
+    margin-top: 1rem;
+}
+.filter{
+    /* text-align: left; */
+    font-size: 0.7rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.02px;
+    color: #262A41;
+    opacity: 0.9;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.search-container{
+    display: flex;
+    flex-direction: row;
+}
+.search-bar{
+    height: 2.5rem;        
+    width: 19rem;
+    background: #3C3F54 0% 0% no-repeat padding-box;
+    border: 1px solid #3C3F54;
+    border-radius: 1.8rem;
+    opacity: 0.11;
+    margin-bottom: 0.5rem;
+    /* font-size: 0.8rem;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    letter-spacing: -0.02px;
+    color: #262A41;
+    opacity: 0.52; */
+}
+.country{
+    background: #3C3F54 0% 0% no-repeat padding-box;
+    border: 1px solid #3C3F54;
+    border-radius: 35px;
+    opacity: 0.11;
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 1.8rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+.switch-container{
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.switch{}
+.switch-country{
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: -0.42px;
+    color: #000000;
+    opacity: 0.62;
+}
+@media(max-width: 500px){
+    .CardComponent{
+        margin: 0.9rem;
+        width: 90%;
+        align-self: center;
+    }
+    .header{
+        font-size: 1rem;
+    }
+}
