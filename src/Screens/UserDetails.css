@@ -16,7 +16,7 @@
     width: 12rem;
     height: 12rem;
     border-radius: 50%;
-    background: transparent url('../Component/profile.png') 0% 0% no-repeat padding-box;
+    background: transparent /*url('../Component/profile.png')*/ 0% 0% no-repeat padding-box;
     border: 6px solid #75D6D1;
     opacity: 1;
     justify-content: center;

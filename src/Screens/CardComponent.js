@@ -113,10 +113,10 @@ download = async (mimetype, path)=>{
   
     var res = new Blob([users], {type: 'text/csv'});
     var csvURL = window.URL.createObjectURL(res);
-    tempLink = document.createElement('a');
-                    tempLink.href = csvURL;
-                    tempLink.setAttribute('download', 'users.csv');
-                    tempLink.click();
+    //tempLink = document.createElement('a');
+                    // tempLink.href = csvURL;
+                    // tempLink.setAttribute('download', 'users.csv');
+                    // tempLink.click();
   
 }
     render(){
