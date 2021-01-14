@@ -13,6 +13,8 @@ class CardComponent extends React.Component {
         this.state = {
           users: [],
           location: [],
+          search: '',
+          isHidden: true,
           currentPage: 1,
           usersPerPage: 3,
           upperPageBound: 3,
@@ -40,24 +42,29 @@ class CardComponent extends React.Component {
       console.log(users)
     }
 
+    onSearchEnter = event => {
+      event.preventDefault();
+  
+      //onSubmit(this.state.search);
+    };
 
-    renderUsercomponent = (item) =>{
-      const {users} = this.state;
-      if(users.length !== 0) {
-        const user = users.map((user, i) => {
-          return(
-           <div key={i} >
-             <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} email={user.email} phone={user.phone} />
-           </div>
-          )
-       })
-       return(
-        <div className="scroll">
-          {user}
-        </div>
-      )
-      }
-    }
+    // renderUsercomponent = (item) =>{
+    //   const {users} = this.state;
+    //   if(users.length !== 0) {
+    //     const user = users.map((user, i) => {
+    //       return(
+    //        <div key={i} >
+    //          <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} email={user.email} phone={user.phone} />
+    //        </div>
+    //       )
+    //    })
+    //    return(
+    //     <div className="scroll">
+    //       {user}
+    //     </div>
+    //   )
+    //   }
+    // }
 
     onSearchSubmit(term) {}
 
@@ -108,17 +115,15 @@ btnNextClick() {
   //this.setPrevAndNextBtnClass(listid);
 }
 
-download = async (mimetype, path)=>{
-  const {users} = this.state;
-  
-    var res = new Blob([users], {type: 'text/csv'});
-    var csvURL = window.URL.createObjectURL(res);
-    //tempLink = document.createElement('a');
-                    // tempLink.href = csvURL;
-                    // tempLink.setAttribute('download', 'users.csv');
-                    // tempLink.click();
-  
+handleToggleCardView =()=>{
+  this.setState({isHidden: !this.state.isHidden})
 }
+// download = async (mimetype, path)=>{
+//   const {users} = this.state;
+  
+//     var res = new Blob([users], {type: 'text/csv'});
+//     var csvURL = window.URL.createObjectURL(res);
+// }
     render(){
         const { users, currentPage, usersPerPage,upperPageBound,lowerPageBound,isPrevBtnActive,isNextBtnActive } = this.state;
       
@@ -129,7 +134,7 @@ download = async (mimetype, path)=>{
         const user = currentUsers.map((user, i) => {
           return(
            <div key={i} >
-             <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} email={user.email} phone={user.phone} />
+             <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} onClick={this.handleToggleCardView} image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} email={user.email} phone={user.phone} />
            </div>
           )
        })
@@ -148,10 +153,10 @@ download = async (mimetype, path)=>{
         // else{
         //     renderPrevBtn = <li className={isPrevBtnActive}><a href='#' id="btnPrev" onClick={this.btnPrevClick}> Prev </a></li>
         // }
-        renderPrevBtn = <li className="prev"><a href='#' id="btnPrev" onClick={this.btnPrevClick}> Prev </a></li>
+        renderPrevBtn = <a href='#' id="btnPrev" onClick={this.btnPrevClick} className="prev"><div ></div></a>
 
         let renderNextBtn = null;
-        renderNextBtn = <li className="next"><a href='#' id="btnNext" onClick={this.btnNextClick}> Next </a></li>
+        renderNextBtn = <a href='#' id="btnNext" onClick={this.btnNextClick} className="next"><div></div></a>
         // if(isNextBtnActive === 'disabled') {
         //     renderNextBtn = <li className={isNextBtnActive}><span id="btnNext"> Next </span></li>
         // }
@@ -160,37 +165,33 @@ download = async (mimetype, path)=>{
         // }
 
         return (
-            <div className=" br4 CardComponent">
+            <div className="CardComponent">
                 <div className="header">All Users</div>
                 <div className="filter">Filter By</div>
                 {/* <SearchBar onSubmit={this.onSearchSubmit} placeholder="Find in list" /> */}
                 <div className="search-container">
-                  <input className="search-bar" type="text" placeholder="Find in list" />
+                  <form onSubmit={this.onSearchEnter}>
+                    <input className="search-bar" type="text" value={this.state.search} onChange={e => this.setState({ search: e.target.value })} placeholder="Find in list" />
+                  </form>
                   <div className="country"></div>
                   <div className="switch-container">
                     <div className="switch"></div>
                     <div className="switch-country">Show Country</div>
                   </div>
                 </div>
-                  {/* {this.renderUsercomponent()} */}
-                  <div className="scroll">
+                  <div className={`${this.state.isHidden  ? "scroll" : "scroll-one"}`}>
                     {user}
                   </div>
-                  {/* <Route exact path="/">
-                  </Route>
-                  <Route>
-                    <UserDetails />
-                  </Route> */}
                   <div className="footer-section">
                     <button className="download" onClick={this.download}>Download Results</button>
                     <ul className="pagination">
                       {renderPrevBtn}
-                      {/* {pageDecrementBtn}
-                      {renderPageNumbers}
-                      {pageIncrementBtn} */}
                       {renderNextBtn}
                     </ul>
-                  </div>  
+                  </div>
+                  <div className={`${!this.state.isHidden ? "userDetail-card-one" : "userDetail-card"}`}>
+                      <UserDetails image="" name="fffff" age="ffff" onClick={this.handleToggleCardView} address="fff" email="fff" joined="fff" phone="fff" cell="fff" />
+                  </div>
             </div>
         );
     }

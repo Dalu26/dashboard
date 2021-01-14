@@ -25,7 +25,7 @@ class Onboarding extends React.Component {
                         <p>Male Users</p>
                     </div>
                     <div className="gender-container">
-                        <button className="gender"></button>
+                        <a className="gender"></a>
                         <p>Female Users</p>
                     </div>
                 </div>

@@ -7,6 +7,20 @@
     margin-bottom: 1rem;
     margin-right: 1rem;
 }
+.result-button{
+    display: flex;
+    flex-direction: row;
+    font-weight: medium;
+    font-size: 1rem;
+    font-family: Poppins, sans-serif;
+    letter-spacing: -0.02px;
+    color: #262A41;
+    opacity: 0.52;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+}
 .user-profile{
     display: flex;
     width: 100%;
@@ -16,11 +30,16 @@
     width: 12rem;
     height: 12rem;
     border-radius: 50%;
+    overflow: hidden;
     background: transparent /*url('../Component/profile.png')*/ 0% 0% no-repeat padding-box;
     border: 6px solid #75D6D1;
     opacity: 1;
     justify-content: center;
     align-items: center;
+}
+.profile-img-large{
+    height: 12rem;
+    width: 12rem;
 }
 .profile-details{
     margin-left: 1.5rem;
@@ -64,8 +83,11 @@
     margin-bottom: 1rem;
     align-items: center;
     margin-bottom: 1rem;
-    background: #3C3F54 0% 0% no-repeat padding-box;
-    opacity: 0.15;
+    background: #E2E2EA 0% 0% no-repeat padding-box;
+    /* opacity: 0.15; */
+    border: 1px solid #E2E2EA;
+    border-radius: 1rem;
+    height: 2rem;
 }
 .email-text{
     font-size: 1rem;
@@ -76,9 +98,13 @@
     opacity: 0.52;
 }
 .joined{
-    background: #F935A9 0% 0% no-repeat padding-box;
-    opacity: 0.15;
+    background: #eea8d2 0% 0% no-repeat padding-box;
+    /* opacity: 0.15; */
     margin-bottom: 1rem;
+    height: 2rem;
+    border: 1px solid #eea8d2;
+    border-radius: 1rem;
+    padding: 0.5rem;
 }
 .joined-text{
     font-family: Poppins, sans-serif;

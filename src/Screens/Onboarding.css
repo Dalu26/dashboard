@@ -87,12 +87,21 @@
     width: 4rem;
     height: 4rem;
     background: #F935A9 0% 0% no-repeat padding-box;
+    border: 1px solid #F935A9;
     /* border-radius: 2.049780380673499vw; */
     border-radius: 0.7rem;
     opacity: 1;
     cursor: pointer;
+    transition: all 2s ease-out;
+    transform: scale(1);
     /* margin-right: 2.1961932650073206vw; */
     /* margin-right: 0.5rem; */
+}
+.gender:active {
+    transform: scale(1.5) perspective(1px);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 3px solid #F935A9
 }
 @media(max-width: 500px) {
     .name{

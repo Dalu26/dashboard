@@ -11,29 +11,34 @@ class UserDetails extends React.Component {
     // this.fetchUsers();
   }
   render(){
+
+    const {image, name, age, address, email, joined, phone, cell, onClick} = this.props;
     return (
       <div className="user-container">
+          <a href="#" onClick={onClick} className="result-button">RESULTS</a>
           <div className="user-profile">
-              <div className="profile-img"></div>
+              <div className="profile-img">
+                <img className="profile-img-large" src={image} height="11rem" width="11rem" />
+              </div>
               <div className="profile-details">
                   <div className="bio">
-                      <div className="bio-name">Mrs. Shalom Chioma</div>
-                      <div className="bio-age">25</div>
+                      <div className="bio-name">{name}</div>
+                      <div className="bio-age">{age}</div>
                   </div>
-                  <div className="profile-address">9278 new road, kilcoole, waterford</div>
+                  <div className="profile-address">{address}</div>
                   <div className="profile-email">
-                      <div className="email-text">brad.gibson@example.com</div>
+                      <div className="email-text">{email}</div>
                   </div>
                   <div className="joined">
                       <div className="joined-text">
-                      JOINED: 2002-05-21
+                      JOINED: {joined}
                       </div>
                     </div>
                   <div className="phone">
-                      <div className="profile-no">011-962-7516</div>
+                      <div className="profile-no">{phone}</div>
                   </div>
                   <div className="phone">
-                      <div className="profile-no">011-962-7516</div>
+                      <div className="profile-no">{cell}</div>
                   </div>
               </div>
           </div>

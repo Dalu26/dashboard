@@ -24,7 +24,7 @@ class UserComponent extends React.Component {
 
     render(){
         
-        const {name, image, address, email, phone} = this.props;
+        const {name, image, address, email, phone, onClick} = this.props;
 
         return (
         <div className="user">
@@ -51,7 +51,7 @@ class UserComponent extends React.Component {
                     </div>
                 </div>
             </div>
-            <button className="footer-button">
+            <button onClick={onClick} className="footer-button">
                 <div>
                 </div>
             </button>

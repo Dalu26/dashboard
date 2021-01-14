@@ -4,6 +4,7 @@
     flex-direction: column;
     background: #F7F7FF no-repeat;
     border: 1px solid #707070;
+    border-radius: 1rem;
     padding-left: 3rem;
     padding-top: 1.5rem;
     padding-right: 3rem;
@@ -19,10 +20,27 @@
     height: 100vh;
     /* margin: 1.0980966325036603vw; */
 }
+/* .user-card{
+    position: absolute;
+    z-index: 32;
+} */
+.userDetail-card{
+    z-index: -32;
+    display: none;
+}
+.userDetail-card-one{
+    z-index: 32;
+}
 .scroll{
     overflow-y: scroll;
     scrollbar-width: none;
-    margin-bottom: 0.1rem;
+    z-index: 32;
+}
+.scroll-one{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    display: none;
+    z-index: -1;
 }
 
 .header{
@@ -42,7 +60,7 @@
     font-weight: 300;
     letter-spacing: -0.02px;
     color: #262A41;
-    opacity: 0.9;
+    /* opacity: 0.9; */
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -50,20 +68,34 @@
     display: flex;
     flex-direction: row;
 }
-.search-bar{
+.search-bar 
+{
     height: 2.5rem;        
     width: 19rem;
-    background: #3C3F54 0% 0% no-repeat padding-box;
-    border: 1px solid #3C3F54;
+    /* background: #3C3F54 0% 0% no-repeat padding-box; */
+    background: #E2E2EA url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat padding-box;
+    border: 1px solid #E2E2EA;
     border-radius: 1.8rem;
-    opacity: 0.11;
     margin-bottom: 0.5rem;
+    background-position-x: 5%;
+    background-position-y: center;
+    color: #3C3F54;
+    padding-left: 3rem;
+    outline: none;
     /* font-size: 0.8rem;
     font-weight: 600;
     font-family: Poppins, sans-serif;
     letter-spacing: -0.02px;
     color: #262A41;
     opacity: 0.52; */
+}
+.search-bar::placeholder {
+	opacity: 1;
+    margin-left: 5rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: -0.02px;
+    color: #3C3F54;
 }
 .country{
     background: #3C3F54 0% 0% no-repeat padding-box;
@@ -95,23 +127,28 @@
 .footer-section{
     display: flex;
     flex-direction: row;
-    align-items: center;
     width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 .download{
-    background: #7946C1 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    background-color: #7946C1;
+    display: inline-block;
+    /* box-shadow: 0px 3px 6px #00000029; */
     border-radius: 35px;
-    opacity: 1;
+    border: 1px solid #7946C1;
     height: 2.6rem;
     align-self: center;
+    align-content: center;
+    justify-content: center;
     cursor: pointer;
     justify-self: flex-start;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-family: Poppins, sans-serif;
     letter-spacing: -0.19px;
     color: #FFFFFF;
+    outline: none;
 }
 .pagination{
     display: flex;
@@ -119,6 +156,9 @@
     justify-content: flex-end;
     align-items: center;
     text-decoration: none;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-left: 25rem;
 }
 .prev{
     background: #E2E2EA 0% 0% no-repeat padding-box;
@@ -149,5 +189,8 @@
     }
     .header{
         font-size: 1rem;
+    }
+    .pagination{
+        margin-left: 3rem;
     }
 }
