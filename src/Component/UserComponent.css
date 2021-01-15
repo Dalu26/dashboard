@@ -1,7 +1,7 @@
 .user{
 /* width: 100%; */
 /* height: 6.076134699853587vw; */
-background: #FCFCFF  no-repeat;
+background: #FFF  no-repeat;
 box-shadow: 10px 10px 40px #0000000D;
 border-radius: 1.2rem;
 opacity: 1;
@@ -19,6 +19,50 @@ padding-right: 1rem;
 /* flex: 1; */
 /* margin-top: ; */
 }
+
+.accordion{
+    overflow-y: scroll;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    height: 100vh;
+}
+.accordion::-webkit-scrollbar{
+    display: none;
+}
+
+.userDetail-card{
+    z-index: -1;
+    display: none;
+}
+.userDetail-card-one{
+    z-index: 1;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    
+}
+.userDetail-card-one::-webkit-scrollbar{
+    display: none;
+}
+.scroll{
+    /* overflow-y: scroll;
+    scrollbar-width: none; */
+    z-index: 1;
+    /* background: #F7F7FF no-repeat; */
+    margin-bottom: 0.2rem;
+    /* height: 91.5vw; */
+}
+.scroll-one{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    display: none;
+    z-index: -1;
+    /* background: #F7F7FF no-repeat; */
+}
+
+
+
+
 .image{
     border-radius: 50%;
     justify-content: center;
@@ -129,5 +173,15 @@ padding-right: 1rem;
     }
     .footer-phone{
         font-size: 0.6rem;
+    }
+
+
+
+
+    .scroll{
+        display: flex;
+        flex-direction: column;
+        /* overflow-y: scroll; */
+        /* height: 91.5vw; */
     }
 }

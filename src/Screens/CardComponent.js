@@ -1,7 +1,6 @@
 import React from 'react';
 import './CardComponent.css';
 import UserComponent from '../Component/UserComponent';
-import UserDetails from './UserDetails';
 import axios from 'axios';
 
 class CardComponent extends React.Component {
@@ -11,6 +10,7 @@ class CardComponent extends React.Component {
           users: [],
           location: [],
           search: '',
+          userSearch: [],
           dropDown: '',
           isHidden: true,
           switchOn: true,
@@ -21,7 +21,6 @@ class CardComponent extends React.Component {
           isPrevBtnActive: 'disabled',
           isNextBtnActive: '',
           pageBound: 3,
-          // sortedCountries: [],
         };
       }
 
@@ -30,43 +29,29 @@ class CardComponent extends React.Component {
       }
 
     fetchUsers = async () =>{
-      const response = await axios.get('https://randomuser.me/api/?page=5&results=50&seed=123')
+      const response = await axios.get('https://randomuser.me/api/?page=6&results=50&seed=123')
       const users = response.data.results;
       this.setState({users})
-      // console.log(users)
     }
-
-    // onSearchEnter = event => {
-    //   const {users} = this.state;
-    //   event.preventDefault();
-    
-    //   users.filter((users) =>
-    //   users.location.country.toLowerCase().includes(this.state.search.toLowerCase()))
-    //     //console.log(users)
-  
-    //   //onSubmit(this.state.search);
-    // };
 
 
     onSearchSubmit=(event)=> {
-      // const {users} = this.state;
       event.preventDefault();
-      const user = this.state.users.filter((user) => user.name.first+user.name.last.includes(this.state.search))
-      .map((result) => {
-        return(
-          <div >
-            <UserComponent  onClick={this.handleToggleCardView} image={result.picture.medium} address={result.location.street.number + ' ' + result.location.street.name + ', ' + result.location.city + ', ' + result.location.state} email={result.email} phone={result.phone} />
-          </div>
-        )
-      })
-      // console.log(this.state.search);
-      console.log(user, "searched")
-    };
+       const {users} = this.state;
+       const result = users.filter((user) =>
+       user.name.first.toLowerCase().includes(this.state.search.toLowerCase())
+       )
+       this.setState({userSearch: result})
 
-//     componentDidUpdate() {
-//       $("ul li.active").removeClass('active');
-//       $('ul li#'+this.state.currentPage).addClass('active');
-// }
+      const final = result;
+       let i = 0;
+       while(i < final.length){
+         console.log(final[i], 'final');
+         i+= 1;
+       }
+       console.log(final, 'final search')
+      };
+    
 
 
 handleClick =(event)=> {
@@ -74,8 +59,6 @@ handleClick =(event)=> {
   this.setState({
     currentPage: userid
   });
-  // $("ul li.active").removeClass('active');
-  // $('ul li#'+listid).addClass('active');
    this.setPrevAndNextBtnClass(userid);
 }
 setPrevAndNextBtnClass(userid) {
@@ -116,23 +99,17 @@ handleToggleCardView =()=>{
   this.setState({isHidden: !this.state.isHidden})
 }
 
-handleSwitch =()=> {
-  this.setState({switchOn: !this.state.switchOn})
-}
+// handleSwitch =()=> {
+//   this.setState({switchOn: !this.state.switchOn})
+// }
 
 handleDownload = async(event)=>{
   const {users} = this.state;
-  // const name = users.name.title + ' ' + users.name.first + ' ' + users.name.last;
-  // const address = users.location.street.number + ' ' + users.location.street.name + ', ' + users.location.city + ', ' + users.location.state;
-  // const email = users.email;
-  // const gender = users.gender; 
-  // const phone = users.phone;
-  // const URL = 'https://randomuser.me/api/?results=3'
   await axios.get('https://randomuser.me/api/?results=50&format=csv&dl')
 };
 
     render(){
-        const { sortedCountries, users, currentPage, usersPerPage,upperPageBound,lowerPageBound,isPrevBtnActive,isNextBtnActive } = this.state;
+        const { sortedCountries, userSearch, users, currentPage, usersPerPage,upperPageBound,lowerPageBound,isPrevBtnActive,isNextBtnActive } = this.state;
       
         const indexOfLastUser = currentPage * usersPerPage;
         const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -140,15 +117,20 @@ handleDownload = async(event)=>{
 
         const user = currentUsers.map((user, i) => {
           return(
-           <div key={i} >
-             <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} onClick={this.handleToggleCardView} image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} email={user.email} phone={user.phone} />
-           </div>
-          )
+              <div key={i}
+              >
+                <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} 
+                  image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} 
+                  email={user.email} phone={user.phone}
+                  
+                   photo={user.picture.large} username={user.name.title + ' ' + user.name.first + ' ' + user.name.last} old={user.dob.age} home={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state}
+                   eAddress={user.email} created={user.registered.date} phoneNo={user.phone} cellNo={user.cell}
+                  />
+           </div>)
        })
-
-       const country = currentUsers.map((user) => {
+       const country = currentUsers.map((user, i) => {
          return(
-            <option  key={user.location.country}>
+            <option  key={i}>
             {user.location.country}
           </option>
          )
@@ -179,9 +161,6 @@ handleDownload = async(event)=>{
                   <form onSubmit={this.onSearchSubmit}>
                     <input className="search-bar" type="text" value={this.state.search} onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
                   </form>
-                  {/* <select value="country" className="country">
-                    {country}
-                  </select> */}
                   <select  className="country" onChange={(e) => this.setState({dropDown: e.target.value})}>
                     <option>country</option>
                       {country}
@@ -193,18 +172,18 @@ handleDownload = async(event)=>{
                     <div className="switch-country">Show Country</div>
                   </div>
                 </div>
-                  <div className={`${this.state.isHidden  ? "scroll" : "scroll-one"}`}>
+                  <div className="accordion">
                     {user}
+                  </div>
+                  <div>
+                    {/* {this.getSearch()} */}
                   </div>
                   <div className="footer-section">
                     <button className="download" onClick={this.handleDownload}>Download Results</button>
-                    <ul className="pagination">
+                    <div className="pagination">
                       {renderPrevBtn}
                       {renderNextBtn}
-                    </ul>
-                  </div>
-                  <div className={`${!this.state.isHidden ? "userDetail-card-one" : "userDetail-card"}`}>
-                      <UserDetails image="" name="fffff" age="ffff" onClick={this.handleToggleCardView} address="fff" email="fff" joined="fff" phone="fff" cell="fff" />
+                    </div>
                   </div>
             </div>
         );

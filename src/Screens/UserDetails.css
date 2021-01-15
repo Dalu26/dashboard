@@ -4,7 +4,8 @@
     background: #F7F7FF no-repeat;
     opacity: 1;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 5.7rem; */
+    margin-bottom: 4rem;
     margin-right: 1rem;
 }
 .result-button{
@@ -16,6 +17,7 @@
     letter-spacing: -0.02px;
     color: #262A41;
     opacity: 0.52;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
     cursor: pointer;
@@ -80,12 +82,13 @@
 .profile-email{
     display: flex;
     flex-direction: row;
-    margin-bottom: 1rem;
     align-items: center;
     margin-bottom: 1rem;
     background: #E2E2EA 0% 0% no-repeat padding-box;
     /* opacity: 0.15; */
     border: 1px solid #E2E2EA;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
     border-radius: 1rem;
     height: 2rem;
 }
@@ -100,19 +103,30 @@
 .joined{
     background: #eea8d2 0% 0% no-repeat padding-box;
     /* opacity: 0.15; */
-    margin-bottom: 1rem;
-    height: 2rem;
+    margin-bottom: 0.7rem;
+    height: 1.9rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
     border: 1px solid #eea8d2;
     border-radius: 1rem;
-    padding: 0.5rem;
+    color: #262A41;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    margin-right: 11rem;
+    opacity: 0.6;
 }
 .joined-text{
     font-family: Poppins, sans-serif;
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: -0.18px;
+    margin-left: 0.2rem;
     color: #262A41;
-    opacity: 0.7;
+    opacity: 1;
 }
 .phone{
     margin-bottom: 1rem;
@@ -124,4 +138,59 @@
     letter-spacing: -0.02px;
     color: #262A41;
     opacity: 0.52;
+}
+@media(max-width: 500px){
+    .user-container{
+        margin-bottom: 6rem;
+    }
+    .profile-img{
+        height: 8rem;
+        width: 8rem;
+    }
+    .profile-img-large{
+        height: 8rem;
+        width: 8rem;
+    }
+    .profile-details{
+        margin-left: 0.9rem;
+    }
+    .bio{
+        flex-direction: column;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .bio-name{
+        font-size: 1.2rem;
+        margin-right: 0.2rem;
+    }
+    .bio-age{
+        font-size: 0.9rem;
+    }
+    .profile-address{
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .profile-email{
+        height: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .email-text{
+        font-size: 0.7rem;
+    }
+    .joined{
+        height: 1.1rem;
+        font-size: 0.6rem;
+        /* padding-left: 0.3rem;
+        padding-right: 0.3rem; */
+        margin-right: 5rem;
+        /* justify-content: center; */
+    }
+    .phone{
+        margin-bottom: 0.5rem;
+    }
+    .profile-no{}
+    .result-button{
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
 }
