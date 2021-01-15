@@ -13,9 +13,7 @@ class UserDetails extends React.Component {
 
   render(){
 
-    const {image, name, age, address, email, joined, phone, cell, onClick,      
-      
-    photo, username, old, home, eAddress, created, phoneNo, cellNo, onMouseClick} = this.props;
+    const {photo, username, old, home, eAddress, created, phoneNo, cellNo, onMouseClick} = this.props;
 
     const joinedAt = new Date(created).getFullYear() + '-' + new Date(created).getMonth() + '-' + new Date(created).getDate();
     return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import './UserComponent.css';
 import UserDetails from '../Screens/UserDetails'; 
 
@@ -12,17 +11,6 @@ class UserComponent extends React.Component {
         };
       }
 
-
-    // componentDidMount() {
-    //     this.fetchUsers();
-    //   }
-    // fetchUsers = async () =>{
-    //   const response = await axios.get('https://randomuser.me/api/?results=50')
-    //   const users = response.data.results;
-    //   // console.log(response.data)
-    //   this.setState({users})
-    //   console.log(users)
-    // }
 
     handleToggleCardView =()=>{
         this.setState({isHidden: !this.state.isHidden})

@@ -109,7 +109,7 @@ handleDownload = async(event)=>{
 };
 
     render(){
-        const { sortedCountries, userSearch, users, currentPage, usersPerPage,upperPageBound,lowerPageBound,isPrevBtnActive,isNextBtnActive } = this.state;
+        const { users, currentPage, usersPerPage, isPrevBtnActive,isNextBtnActive } = this.state;
       
         const indexOfLastUser = currentPage * usersPerPage;
         const indexOfFirstUser = indexOfLastUser - usersPerPage;

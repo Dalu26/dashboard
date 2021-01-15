@@ -11,9 +11,6 @@
     outline: none;
     font-style: 1rem;
 }
-.search::placeholder{
-
-}
 @media (max-width: 500px ){
     .search{
         width: 19.438rem;
