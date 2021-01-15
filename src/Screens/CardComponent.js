@@ -104,7 +104,7 @@ handleToggleCardView =()=>{
 // }
 
 handleDownload = async(event)=>{
-  const {users} = this.state;
+  //const {users} = this.state;
   await axios.get('https://randomuser.me/api/?results=50&format=csv&dl')
 };
 
@@ -142,7 +142,7 @@ handleDownload = async(event)=>{
              renderPrevBtn = <div id="btnPrev" className="prev"><div ></div></div>
          }
          else{
-            renderPrevBtn = <a href='#' id="btnPrev" onClick={this.btnPrevClick} className="prev"><div ></div></a>
+            renderPrevBtn = <button id="btnPrev" onClick={this.btnPrevClick} className="prev"><div ></div></button>
          }
 
         let renderNextBtn = null;
@@ -150,7 +150,7 @@ handleDownload = async(event)=>{
              renderNextBtn = <div id="btnNext" className="next"><div></div></div>
          }
          else{
-          renderNextBtn = <a href='#' id="btnNext" onClick={this.btnNextClick} className="next"><div></div></a>
+          renderNextBtn = <button  id="btnNext" onClick={this.btnNextClick} className="next"><div></div></button>
          }
 
         return (
@@ -166,9 +166,9 @@ handleDownload = async(event)=>{
                       {country}
                   </select>
                   <div className="switch-container">
-                    <a href="#" className={`${this.state.switchOn ? "switch" : "switch-one"}`}>
+                    <button href="#" className={`${this.state.switchOn ? "switch" : "switch-one"}`}>
                       <button onClick={this.handleSwitch} className="inner-switch"></button>
-                    </a>
+                    </button>
                     <div className="switch-country">Show Country</div>
                   </div>
                 </div>

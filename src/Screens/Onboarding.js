@@ -17,7 +17,7 @@ class Onboarding extends React.Component {
                 <div className="show-users">Show Users</div>
                 <div className="gender-section">
                     <div className="gender-container">
-                        <button onClick="#" className="gender"></button>
+                        <button  className="gender"></button>
                         <p>All Users</p>
                     </div>
                     <div className="gender-container">
@@ -25,7 +25,7 @@ class Onboarding extends React.Component {
                         <p>Male Users</p>
                     </div>
                     <div className="gender-container">
-                        <a className="gender"></a>
+                        <button className="gender"></button>
                         <p>Female Users</p>
                     </div>
                 </div>

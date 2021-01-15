@@ -18,15 +18,15 @@ class UserComponent extends React.Component {
 
     render(){
         
-        const {name, image, address, email, phone, onClick, 
-        photo, username, old, home, eAddress, created, phoneNo, cellNo, propClass} = this.props;
+        const {name, image, address, email, phone, 
+        photo, username, old, home, eAddress, created, phoneNo, cellNo} = this.props;
 
         return (
             <div>
                 <div className={`${this.state.isHidden  ? "scroll" : "scroll-one"}`}>
                     <div className="user">
                         <div className ="image">
-                            <img className="profile" height="4rem" width="4rem" src={image} />
+                            <img className="profile" alt='profile' height="4rem" width="4rem" src={image} />
                         </div>
                         <div className="user-detail">
                             <div className="name">{name}</div>
