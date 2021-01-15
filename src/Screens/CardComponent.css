@@ -8,43 +8,38 @@
     padding-left: 3rem;
     padding-top: 1.5rem;
     padding-right: 3rem;
-    /* padding-bottom: rem; */
-    /* border-radius: 2.049780380673499vw; */
-    /* border-radius: 28px; */
     opacity: 1;
-    /* padding-right: 6.076134699853587vw;
-    padding-top: 4.758418740849195vw;
-    padding-left: 7.46705710102489vw;
-    padding-bottom: 3.6603221083455346vw; */
     width: 100%;
     height: 100vh;
-    /* margin: 1.0980966325036603vw; */
 }
 /* .user-card{
     position: absolute;
     z-index: 32;
 } */
 .userDetail-card{
-    z-index: -32;
+    z-index: -1;
     display: none;
 }
 .userDetail-card-one{
-    z-index: 32;
+    z-index: 1;
 }
 .scroll{
     overflow-y: scroll;
     scrollbar-width: none;
-    z-index: 32;
+    z-index: 1;
+    background: #F7F7FF no-repeat;
+    margin-bottom: 0.2rem;
+    height: 91.5vw;
 }
 .scroll-one{
     overflow-y: scroll;
     scrollbar-width: none;
     display: none;
     z-index: -1;
+    background: #F7F7FF no-repeat;
 }
 
 .header{
-    /* text-align: left; */
     font-size: 1.5rem;
     font-family: Poppins, sans-serif;
     font-weight: bold;
@@ -54,7 +49,6 @@
     margin-top: 1rem;
 }
 .filter{
-    /* text-align: left; */
     font-size: 0.7rem;
     font-family: Poppins, sans-serif;
     font-weight: 300;
@@ -70,9 +64,8 @@
 }
 .search-bar 
 {
-    height: 2.5rem;        
+    height: 2.3rem;        
     width: 19rem;
-    /* background: #3C3F54 0% 0% no-repeat padding-box; */
     background: #E2E2EA url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat padding-box;
     border: 1px solid #E2E2EA;
     border-radius: 1.8rem;
@@ -82,12 +75,6 @@
     color: #3C3F54;
     padding-left: 3rem;
     outline: none;
-    /* font-size: 0.8rem;
-    font-weight: 600;
-    font-family: Poppins, sans-serif;
-    letter-spacing: -0.02px;
-    color: #262A41;
-    opacity: 0.52; */
 }
 .search-bar::placeholder {
 	opacity: 1;
@@ -98,15 +85,22 @@
     color: #3C3F54;
 }
 .country{
-    background: #3C3F54 0% 0% no-repeat padding-box;
-    border: 1px solid #3C3F54;
+    background: #E2E2EA 0% 0% no-repeat padding-box;
+    border: 1px solid #E2E2EA;
     border-radius: 35px;
-    opacity: 0.11;
-    height: 2.5rem;
+    /* opacity: 0.11; */
+    height: 2.3rem;
     width: 10rem;
+    color: #262A41;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: -0.02;
     border-radius: 1.8rem;
     margin-bottom: 0.5rem;
     margin-left: 1rem;
+    outline: none;
 }
 .switch-container{
     width: 10rem;
@@ -115,7 +109,43 @@
     align-items: center;
     margin-bottom: 0.5rem;
 }
-.switch{}
+.switch{
+    display: flex;
+    flex-direction: row;
+    width: 2.5rem;
+    height: 1.3rem;
+    background: #30BBB5 0% 0% no-repeat padding-box;
+    border-radius: 0.9rem;
+    margin-left: 1rem;
+    margin-right: 0.4rem;
+    align-content: center;
+    justify-content: flex-end;
+}
+.switch-one {
+    display: flex;
+    flex-direction: row;
+    width: 2.5rem;
+    height: 1.3rem;
+    background: #30BBB5 0% 0% no-repeat padding-box;
+    border-radius: 0.9rem;
+    margin-left: 1rem;
+    margin-right: 0.4rem;
+    align-content: center;
+    justify-content: flex-start;
+}
+.inner-switch{
+    outline: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: 0.2px solid #fff;
+    cursor: pointer;
+    color: #fff;
+    align-self: center;
+    margin-right: 1.8px;
+    margin-left: 1.5px;
+}
+
 .switch-country{
     font-family: Poppins, sans-serif;
     font-weight: 600;
@@ -123,13 +153,14 @@
     letter-spacing: -0.42px;
     color: #000000;
     opacity: 0.62;
+    text-decoration: none;
 }
 .footer-section{
     display: flex;
     flex-direction: row;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
 }
 .download{
     background-color: #7946C1;
@@ -184,13 +215,38 @@
 @media(max-width: 500px){
     .CardComponent{
         margin: 0.9rem;
-        width: 90%;
+        width: 97%;
+        height: auto;
         align-self: center;
+        font-size: 0.8rem;
+        padding-right: 1.4rem;
+        padding-left: 1.9rem;
+        margin-bottom: 0.3rem;
     }
     .header{
         font-size: 1rem;
     }
+    .search-bar{
+        width: 7rem;
+        padding-left: 1.8rem;
+    }
+    .country{
+        width: 6rem;
+        border-radius: 1.2rem;
+    }
     .pagination{
-        margin-left: 3rem;
+        margin-left: 7rem;
+        bottom: 0;
+    }
+    .footer-section{
+        display: flex;
+        justify-self: flex-end;
+        /* margin-top: 20rem; */
+    }
+    .scroll{
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        height: 91.5vw;
     }
 }

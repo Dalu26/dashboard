@@ -29,7 +29,7 @@ class UserComponent extends React.Component {
         return (
         <div className="user">
             <div className ="image">
-                <img className="profile" height="3rem" width="3rem" src={image} />
+                <img className="profile" height="4rem" width="4rem" src={image} />
             </div>
             <div className="user-detail">
                 <div className="name">{name}</div>

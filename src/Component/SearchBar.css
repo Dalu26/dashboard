@@ -1,10 +1,18 @@
 .search{
     height: 50px;
     width: 28.438rem;
-    background: #3C3F54 0% 0% no-repeat padding-box;
+    background: #3C3F54 url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat padding-box;
     border: 1px solid #3C3F54;
     border-radius: 1.2rem;
-    opacity: 1;
+    color: #fff;
+    background-position-x: 5%;
+    background-position-y: center;
+    padding-left: 3rem;
+    outline: none;
+    font-style: 1rem;
+}
+.search::placeholder{
+
 }
 @media (max-width: 500px ){
     .search{
