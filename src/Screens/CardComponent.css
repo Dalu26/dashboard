@@ -10,7 +10,7 @@
     padding-right: 3rem;
     opacity: 1;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 /* .user-card{
     position: absolute;
@@ -131,6 +131,7 @@
     border-radius: 0.9rem;
     margin-left: 1rem;
     margin-right: 0.4rem;
+    cursor: pointer;
     align-content: center;
     justify-content: flex-end;
 }
@@ -144,6 +145,7 @@
     margin-left: 1rem;
     margin-right: 0.4rem;
     align-content: center;
+    cursor: pointer;
     justify-content: flex-start;
 }
 .inner-switch{
@@ -154,6 +156,7 @@
     border: 0.2px solid #fff;
     cursor: pointer;
     color: #fff;
+    background-color: #fff;
     align-self: center;
     margin-right: 1.8px;
     margin-left: 1.5px;
@@ -210,6 +213,7 @@
 }
 .prev{
     background: #E2E2EA 0% 0% no-repeat padding-box;
+    border: 1px solid #E2E2EA;
     border-radius: 11px;
     opacity: 1;
     width: 2.3rem;
@@ -218,6 +222,8 @@
     align-items: center;
     text-decoration: none;
     margin-right: 0.4rem;
+    cursor: pointer;
+    outline: none;
 }
 .next{
     height: 2.3rem;
@@ -228,17 +234,19 @@
     box-shadow: 4px 5px 20px #0000001A;
     border-radius: 11px;
     opacity: 1;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #262A41;
 }
 @media(max-width: 500px){
     .CardComponent{
         margin: 0.9rem;
-        width: 97%;
+        width: 100%;
         height: auto;
         align-self: center;
         font-size: 0.8rem;
-        padding-right: 1.4rem;
-        padding-left: 1.9rem;
-        margin-bottom: 0.3rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
     .header{
         font-size: 1rem;

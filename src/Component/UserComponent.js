@@ -1,6 +1,6 @@
 import React from 'react';
 import './UserComponent.css';
-import UserDetails from '../Screens/UserDetails'; 
+import UserDetails from '../Screens/UserDetails';
 
 class UserComponent extends React.Component {
     constructor(props) {
@@ -32,25 +32,22 @@ class UserComponent extends React.Component {
                             <div className="name">{name}</div>
                             <div className="address">{address}</div>
                             <div className="footer">
-                                <div className="footer-email">
-                                    <div>
-                                    </div>
-                                    <div>
+                                <div className="footer-email-div">
+                                        <i class="grey mail  icon" />
+                                    <div className="footer-email">
                                         {email}
                                     </div>
                                 </div>
-                                <div className="footer-phone">
-                                    <div>
-                                    </div>
-                                    <div>
+                                <div className="footer-phone-div">
+                                        <i class="grey phone flipped  icon" />
+                                    <div className="footer-phone">
                                         {phone}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <button onClick={this.handleToggleCardView} className="footer-button">
-                            <div>
-                            </div>
+                            <i  class="white arrow right small icon" />
                         </button>
                     </div>
             </div>

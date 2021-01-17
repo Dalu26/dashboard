@@ -15,7 +15,7 @@ class CardComponent extends React.Component {
           isHidden: true,
           switchOn: true,
           currentPage: 1,
-          usersPerPage: 6,
+          usersPerPage: 12,
           upperPageBound: 3,
           lowerPageBound: 0,
           isPrevBtnActive: 'disabled',
@@ -99,9 +99,9 @@ handleToggleCardView =()=>{
   this.setState({isHidden: !this.state.isHidden})
 }
 
-// handleSwitch =()=> {
-//   this.setState({switchOn: !this.state.switchOn})
-// }
+handleSwitch =()=> {
+  this.setState({switchOn: !this.state.switchOn})
+}
 
 handleDownload = async(event)=>{
   //const {users} = this.state;
@@ -139,19 +139,29 @@ handleDownload = async(event)=>{
 
         let renderPrevBtn = null;
          if(isPrevBtnActive === 'disabled') {
-             renderPrevBtn = <div id="btnPrev" className="prev"><div ></div></div>
+             renderPrevBtn = <button id="btnPrev" className="prev">
+                <i class="black angle left  icon" />
+             </button>
          }
          else{
-            renderPrevBtn = <button id="btnPrev" onClick={this.btnPrevClick} className="prev"><div ></div></button>
+            renderPrevBtn = <button id="btnPrev" onClick={this.btnPrevClick} className="prev">
+              <i class="left angle left  icon" />
+            </button>
          }
 
         let renderNextBtn = null;
          if(isNextBtnActive === 'disabled') {
-             renderNextBtn = <div id="btnNext" className="next"><div></div></div>
+             renderNextBtn = <button id="btnNext" className="next">
+               <i class="white angle right icon" />
+             </button>
          }
          else{
-          renderNextBtn = <button  id="btnNext" onClick={this.btnNextClick} className="next"><div></div></button>
+          renderNextBtn = <button  id="btnNext" onClick={this.btnNextClick} className="next">
+                <i class="white angle right  icon" />    
+            </button>
          }
+
+
 
         return (
             <div className="CardComponent">
@@ -166,9 +176,9 @@ handleDownload = async(event)=>{
                       {country}
                   </select>
                   <div className="switch-container">
-                    <button href="#" className={`${this.state.switchOn ? "switch" : "switch-one"}`}>
-                      <button onClick={this.handleSwitch} className="inner-switch"></button>
-                    </button>
+                    <div  className={`${this.state.switchOn ? "switch" : "switch-one"}`}>
+                      <div onClick={this.handleSwitch} className="inner-switch"></div>
+                    </div>
                     <div className="switch-country">Show Country</div>
                   </div>
                 </div>

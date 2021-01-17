@@ -18,7 +18,10 @@ class UserDetails extends React.Component {
     const joinedAt = new Date(created).getFullYear() + '-' + new Date(created).getMonth() + '-' + new Date(created).getDate();
     return (
       <div className="user-container">
-          <button onClick={onMouseClick} className="result-button">RESULTS</button>
+        <div className="result-button">
+            <i onClick={onMouseClick} class="teal link arrow left large icon"/>
+            <div onClick={onMouseClick} className="result-button-text">RESULTS</div>
+        </div>
           <div className="user-profile">
               <div className="profile-img">
                 <img className="profile-img-large" alt="profile" src={photo} height="11rem" width="11rem" />
