@@ -11,17 +11,20 @@
 .result-button{
     display: flex;
     flex-direction: row;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 1.5rem;
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: none;
+}
+.result-button-text{
+    color: #262A41;
+    opacity: 0.52;
     font-weight: medium;
     font-size: 1rem;
     font-family: Poppins, sans-serif;
     letter-spacing: -0.02px;
-    color: #262A41;
-    opacity: 0.52;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    cursor: pointer;
-    text-decoration: none;
 }
 .user-profile{
     display: flex;

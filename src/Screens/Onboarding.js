@@ -17,15 +17,21 @@ class Onboarding extends React.Component {
                 <div className="show-users">Show Users</div>
                 <div className="gender-section">
                     <div className="gender-container">
-                        <button  className="gender"></button>
+                        <button  className="gender">
+                        <i  class="white users big icon" />
+                        </button>
                         <p>All Users</p>
                     </div>
                     <div className="gender-container">
-                        <button className="gender"></button>
+                        <button className="gender">
+                            <i  class="white male big icon" />
+                        </button>
                         <p>Male Users</p>
                     </div>
                     <div className="gender-container">
-                        <button className="gender"></button>
+                        <button className="gender">
+                        <i  class="white female big icon" />
+                        </button>
                         <p>Female Users</p>
                     </div>
                 </div>

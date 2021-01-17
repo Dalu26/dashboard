@@ -1,15 +1,19 @@
 .search{
     height: 50px;
     width: 28.438rem;
-    background: #3C3F54 url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat padding-box;
+    background-color: #3C3F54;
     border: 1px solid #3C3F54;
+    background-image: url('https://github.githubassets.com/images/search-key-slash.svg') #fff no-repeat;
     border-radius: 1.2rem;
-    color: #fff;
+    /* color: #fff; */
     background-position-x: 5%;
     background-position-y: center;
-    padding-left: 3rem;
+    padding-left: 3.2rem;
     outline: none;
-    font-style: 1rem;
+    font-size: 0.9rem;
+}
+.search::placeholder{
+    color: #fff;
 }
 @media (max-width: 500px ){
     .search{
