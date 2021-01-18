@@ -67,7 +67,7 @@
     font-weight: 300;
     letter-spacing: -0.02px;
     color: #262A41;
-    /* opacity: 0.9; */
+    opacity: 0.9;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -120,6 +120,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-bottom: 0.5rem;
 }
 .switch{
@@ -181,14 +182,10 @@
     align-content: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    /* margin-bottom: 0.5rem; */
-    /* position: absolute;
-    bottom: 0; */
 }
 .download{
     background-color: #7946C1;
     display: inline-block;
-    /* box-shadow: 0px 3px 6px #00000029; */
     border-radius: 35px;
     border: 1px solid #7946C1;
     height: 2.6rem;
@@ -250,6 +247,11 @@
     }
     .header{
         font-size: 1rem;
+        padding-left: 0.5rem;
+    }
+    .filter{
+        padding-left: 0.5rem;
+        margin-top: 0.5rem;
     }
     .search-bar{
         width: 7rem;
@@ -265,13 +267,12 @@
     }
     .footer-section{
         display: flex;
-        /* justify-self: flex-end; */
-        /* margin-top: 20rem; */
     }
     .scroll{
         display: flex;
         flex-direction: column;
-        /* overflow-y: scroll; */
-        /* height: 91.5vw; */
+    }
+    .switch-container{
+        align-content: space-between;
     }
 }

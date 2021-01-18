@@ -11,7 +11,7 @@ class CardComponent extends React.Component {
           location: [],
           search: '',
           userSearch: [],
-          dropDown: '',
+          dropDown: null,
           isHidden: true,
           switchOn: true,
           currentPage: 1,
@@ -29,7 +29,7 @@ class CardComponent extends React.Component {
       }
 
     fetchUsers = async () =>{
-      const response = await axios.get('https://randomuser.me/api/?page=6&results=50&seed=123')
+      const response = await axios.get('https://randomuser.me/api/?page=6&results=100&seed=123')
       const users = response.data.results;
       this.setState({users})
     }
@@ -37,21 +37,20 @@ class CardComponent extends React.Component {
 
     onSearchSubmit=(event)=> {
       event.preventDefault();
-       const {users} = this.state;
-       const result = users.filter((user) =>
-       user.name.first.toLowerCase().includes(this.state.search.toLowerCase())
-       )
-       this.setState({userSearch: result})
 
-      const final = result;
-       let i = 0;
-       while(i < final.length){
-         console.log(final[i], 'final');
-         i+= 1;
-       }
-       console.log(final, 'final search')
-      };
-    
+       const {users} = this.state;
+      //   const result = users.filter((user) =>
+      //   user.name.first.toLowerCase().includes(this.state.search.toLowerCase())
+      //   )
+
+      // const final = result;
+      //  let i = 0;
+      //  while(i < final.length){
+      //    console.log(final[i], 'final');
+      //    i+= 1;
+      //  }
+      //  console.log(final, 'final search')
+    };
 
 
 handleClick =(event)=> {
@@ -104,30 +103,51 @@ handleSwitch =()=> {
 }
 
 handleDownload = async(event)=>{
-  //const {users} = this.state;
   await axios.get('https://randomuser.me/api/?results=50&format=csv&dl')
 };
 
+
+
     render(){
         const { users, currentPage, usersPerPage, isPrevBtnActive,isNextBtnActive } = this.state;
-      
         const indexOfLastUser = currentPage * usersPerPage;
         const indexOfFirstUser = indexOfLastUser - usersPerPage;
         const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-
         const user = currentUsers.map((user, i) => {
           return(
-              <div key={i}
-              >
-                <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} 
-                  image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} 
-                  email={user.email} phone={user.phone}
-                  
-                   photo={user.picture.large} username={user.name.title + ' ' + user.name.first + ' ' + user.name.last} old={user.dob.age} home={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state}
-                   eAddress={user.email} created={user.registered.date} phoneNo={user.phone} cellNo={user.cell}
+            <div key={i}
+            >
+              <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} 
+                image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} 
+                email={user.email} phone={user.phone}
+                
+                 photo={user.picture.large} username={user.name.title + ' ' + user.name.first + ' ' + user.name.last} old={user.dob.age} 
+                 home={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state}
+                 eAddress={user.email} created={user.registered.date} phoneNo={user.phone} cellNo={user.cell}
+              />
+         </div>
+         )
+        });
+      
+        const searchedUsers = users.filter((searchRes) =>
+            searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
+            )
+        const filteredUsers = searchedUsers.map((filteredUser, i) => {
+          return(
+              <div key={i}>
+                  <UserComponent name={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} 
+                  image={filteredUser.picture.medium} address={filteredUser.location.street.number + ' ' + filteredUser.location.street.name + ', ' + filteredUser.location.city + ', ' + filteredUser.location.state} 
+                  email={filteredUser.email} phone={filteredUser.phone}
+
+                  photo={filteredUser.picture.large} username={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} old={filteredUser.dob.age} home={filteredUser.location.street.number + ' ' + filteredUser.location.street.name + ', ' + filteredUser.location.city + ', ' + filteredUser.location.state}
+                  eAddress={filteredUser.email} created={filteredUser.registered.date} phoneNo={filteredUser.phone} cellNo={filteredUser.cell}
                   />
-           </div>)
-       })
+              </div>
+          )
+          })
+
+      
+        
        const country = currentUsers.map((user, i) => {
          return(
             <option  key={i}>
@@ -171,7 +191,9 @@ handleDownload = async(event)=>{
                   <form onSubmit={this.onSearchSubmit}>
                     <input className="search-bar" type="text" value={this.state.search} onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
                   </form>
-                  <select  className="country" onChange={(e) => this.setState({dropDown: e.target.value})}>
+                  <select  className="country" 
+                      onChange={(e) => this.setState({dropDown: e.target.value})}
+                  >
                     <option>country</option>
                       {country}
                   </select>
@@ -183,12 +205,10 @@ handleDownload = async(event)=>{
                   </div>
                 </div>
                   <div className="accordion">
-                    {user}
+                    {/* {user} */}
+                    {filteredUsers}
                   </div>
-                  <div>
-                    {/* {this.getSearch()} */}
-                  </div>
-                  <div className="footer-section">
+                   <div className="footer-section">
                     <button className="download" onClick={this.handleDownload}>Download Results</button>
                     <div className="pagination">
                       {renderPrevBtn}

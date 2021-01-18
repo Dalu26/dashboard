@@ -170,13 +170,13 @@ padding-right: 1rem;
     .address{
         font-size: 0.8rem;
         height: auto;
-        line-height: 0.8rem;
-        margin-top: 0.8rem;
+        line-height: 1rem;
+        margin-top: 0.4rem;
     }
     .footer-email{
         font-size: 0.8rem;
         height: 0.9rem;
-        margin-right: 0.3rem;
+        margin-right: 0.4rem;
         
     }
     .footer{
@@ -185,7 +185,7 @@ padding-right: 1rem;
     .footer-phone{
         font-size: 0.8rem;
         height: 0.9rem;
-        margin-top: 0.2rem;
+        margin-top: 0.3rem;
     }
     .scroll{
         display: flex;
