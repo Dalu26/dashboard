@@ -387,8 +387,8 @@
         height: auto;
         align-self: center;
         font-size: 0.8rem;
-        padding-left: none;
-        padding-right: 0.1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
     .header{
         font-size: 1rem;
