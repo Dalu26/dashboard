@@ -11,9 +11,6 @@
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     color: #fff;
-    padding-right: 0.6rem;
-    padding-bottom: 0.6rem;
-    padding-top: 0.6rem;
   }
 
 @media (max-width: 500px) {

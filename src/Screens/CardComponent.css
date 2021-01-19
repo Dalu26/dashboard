@@ -1,3 +1,136 @@
+.App {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #262A41 no-repeat;
+    font-family: 'Poppins', sans-serif;
+    text-rendering: optimizeLegibility;
+    opacity: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+      color: #fff;
+      padding-right: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-top: 0.6rem;
+    }
+
+
+    .Onboarding {
+        background: #262A41 no-repeat ;
+        opacity: 1;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex: 1;
+        width: 100%;
+        flex-direction: column;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    }
+    .container{
+        margin-left: 5rem;
+        margin-right: 5rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .name-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .welcome-name{
+        color: #fff;
+        font-size: 2rem;
+        font-family: Poppins, sans-serif;
+        font-weight: 200;
+        letter-spacing: -0.05px;
+        margin-right: 11px;
+        opacity: 1;
+    }
+    /* #name {
+        font-size: 1rem;
+        font-family: Poppins, sans-serif;
+        font-weight: bold;
+        letter-spacing: -0.04px;
+        color: #FFFFFF;
+        opacity: 1;
+    } */
+    .welcome-text {
+        font-size: 14px;
+        font-family: Poppins, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.23px;
+        color: #FFFFFF;
+        opacity: 0.66;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    .search{
+        height: 50px;
+        width: 28.438rem;
+        background-color: #3C3F54;
+        border: 1px solid #3C3F54;
+        background-image: url('https://github.githubassets.com/images/search-key-slash.svg') #fff no-repeat;
+        border-radius: 1.2rem;
+        color: #fff;
+        background-position-x: 5%;
+        background-position-y: center;
+        padding-left: 3.2rem;
+        outline: none;
+        font-size: 0.9rem;
+    }
+    .search::placeholder{
+        color: #fff;
+    }
+    .show-users{
+        font-size: 0.75rem;
+        font-family: Poppins, sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.02px;
+        color: #FFFFFF;
+        opacity: 0.9;
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .gender-section{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .gender-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.6rem;
+        margin-right: 1.4rem;
+    }
+    .gender{
+        width: 4rem;
+        height: 4rem;
+        justify-content: center;
+        outline: none;
+        align-items: center;
+        background: #F935A9 0% 0% no-repeat padding-box;
+        border: 1px solid #F935A9;
+        border-radius: 0.7rem;
+        opacity: 1;
+        cursor: pointer;
+        transition: all 2s ease;
+        transform: scale(1);
+    }
+    .gender:active {
+        transform: scale(1.5) perspective(1px);
+        width: 7rem;
+        height: 7rem;
+        border-radius: 3px solid #F935A9;
+    }
+
+
+
 .CardComponent{
     display: flex;
     flex: 1;
@@ -5,17 +138,13 @@
     background: #F7F7FF no-repeat;
     border: 1px solid #707070;
     border-radius: 1rem;
-    padding-left: 3rem;
+    padding-left: 2.5rem;
     padding-top: 1.5rem;
     padding-right: 3rem;
     opacity: 1;
     width: 100%;
     height: 100%;
 }
-/* .user-card{
-    position: absolute;
-    z-index: 32;
-} */
 
 .searched{
     z-index: -2;
@@ -24,7 +153,6 @@
     z-index: 1;
 }
 .accordion{
-    /* height: 91.5vw; */
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -36,12 +164,7 @@
     z-index: 1;
 }
 .scroll{
-    /* overflow-y: scroll;
-    scrollbar-width: none; */
-    z-index: 1;
-    /* background: #F7F7FF no-repeat; */
     margin-bottom: 0.2rem;
-    /* height: 91.5vw; */
 }
 .scroll-one{
     overflow-y: hidden;
@@ -49,7 +172,6 @@
     scrollbar-width: none;
     display: none;
     z-index: -1;
-    /* background: #F7F7FF no-repeat; */
 }
 
 .header{
@@ -101,7 +223,6 @@
     background: #E2E2EA 0% 0% no-repeat padding-box;
     border: 1px solid #E2E2EA;
     border-radius: 35px;
-    /* opacity: 0.11; */
     height: 2.3rem;
     width: 10rem;
     color: #262A41;
@@ -181,7 +302,7 @@
     height: 4rem;
     align-content: center;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 .download{
     background-color: #7946C1;
@@ -236,14 +357,38 @@
     border: 1px solid #262A41;
 }
 @media(max-width: 500px){
+    .App {
+        flex-direction: column;
+        padding-right: 0;
+        padding-bottom: 0;
+      }
+    .name{
+        font-size: 1.5rem;
+    }
+    .gender-section{
+        margin: 0.5rem;
+    }
+    .search{
+        width: 19.438rem;
+    }
+    .container{
+        margin: 2rem;
+    }
+    .gender-container{
+        margin-right: 1.4rem;
+    }
+    .gender{
+        height: 3rem;
+        width: 3rem;
+    }
     .CardComponent{
         margin: 0.9rem;
         width: 100%;
         height: auto;
         align-self: center;
         font-size: 0.8rem;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: none;
+        padding-right: 0.1rem;
     }
     .header{
         font-size: 1rem;
