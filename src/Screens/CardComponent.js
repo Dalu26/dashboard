@@ -108,6 +108,13 @@ handleSwitch =()=> {
   this.setState({switchOn: !this.state.switchOn})
 }
 
+// handleGenderBtn =()=> {
+//   const {users} = this.state;
+//   users.filter((searchRes) =>
+//             searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
+//             )
+// }
+
 handleDownload = async(event)=>{
   await axios.get('https://randomuser.me/api/?results=50&format=csv&dl')
 };
@@ -138,6 +145,7 @@ handleDownload = async(event)=>{
         const searchedUsers = users.filter((searchRes) =>
             searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
             )
+        // const genderSearch = searchedUsers.filter()
 
         const filteredUsers = searchedUsers.map((filteredUser, i) => {
               return(
@@ -217,7 +225,7 @@ handleDownload = async(event)=>{
                     {/* <p id="name">Hello, Emerald</p> */}
                 <div className="welcome-text">Welcome to your dashboard, kindly sort through the user base</div>
                 <form onSubmit={this.onSearchSubmit}>
-                    <input className="search" type="text" value={this.state.search} onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
+                    <input className="search" type="text" onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
                   </form>
 
                 <div className="show-users">Show Users</div>
@@ -248,9 +256,9 @@ handleDownload = async(event)=>{
                   <div className="filter">Filter By</div>
                   <div className="search-container">
                     <form onSubmit={this.onSearchSubmit}>
-                      <input className="search-bar" type="text" value={this.state.search} onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
+                      <input className="search-bar" type="text"  onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
                     </form>
-                    <select  className="country" 
+                    <select  className="country"
                         onChange={(e) => this.setState({dropDown: e.target.value})}
                     >
                       <option>country</option>
