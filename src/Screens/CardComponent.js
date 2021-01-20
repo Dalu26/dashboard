@@ -11,9 +11,8 @@ class CardComponent extends React.Component {
           users: [],
           location: [],
           search: '',
-          userSearch: [],
-          selectedCountryOption: null,
-          dropDown: null,
+          dropDown: '',
+          gender: '',
           isHidden: true,
           switchOn: true,
           currentPage: 1,
@@ -31,7 +30,7 @@ class CardComponent extends React.Component {
       }
 
     fetchUsers = async () =>{
-      const response = await axios.get('https://randomuser.me/api/?page=6&results=100&seed=123')
+      const response = await axios.get('https://randomuser.me/api/?page=6&results=10&seed=123')
       const users = response.data.results;
       this.setState({users})
     }
@@ -54,10 +53,6 @@ class CardComponent extends React.Component {
       //  console.log(final, 'final search')
     };
 
-    handleOptionChange = selectedCountryOption => {
-      this.setState({ selectedCountryOption });
-      console.log(`Option selected:`, selectedCountryOption);
-    };
 
 handleClick =(event)=> {
   let userid = Number(event.target.id);
@@ -108,12 +103,15 @@ handleSwitch =()=> {
   this.setState({switchOn: !this.state.switchOn})
 }
 
-// handleGenderBtn =()=> {
-//   const {users} = this.state;
-//   users.filter((searchRes) =>
-//             searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
-//             )
-// }
+handleGender =(e)=> {
+  console.log( e.target.value, 'value first');
+  const btn = e.target;
+  this.setState({gender: btn.value}, () => {
+    console.log(this.state.gender, 'this.setstate call back')
+  });
+  console.log(btn, 'btn 2nd');
+  console.log(this.state.gender, 'gender last')
+}
 
 handleDownload = async(event)=>{
   await axios.get('https://randomuser.me/api/?results=50&format=csv&dl')
@@ -126,69 +124,29 @@ handleDownload = async(event)=>{
         const indexOfLastUser = currentPage * usersPerPage;
         const indexOfFirstUser = indexOfLastUser - usersPerPage;
         const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-        // const user = currentUsers.map((user, i) => {
-        //   return(
-        //     <div key={i}
-        //     >
-        //       <UserComponent name={user.name.title + ' ' + user.name.first + ' ' + user.name.last} 
-        //         image={user.picture.medium} address={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state} 
-        //         email={user.email} phone={user.phone}
-                
-        //          photo={user.picture.large} username={user.name.title + ' ' + user.name.first + ' ' + user.name.last} old={user.dob.age} 
-        //          home={user.location.street.number + ' ' + user.location.street.name + ', ' + user.location.city + ', ' + user.location.state}
-        //          eAddress={user.email} created={user.registered.date} phoneNo={user.phone} cellNo={user.cell}
-        //       />
-        //  </div>
-        //  )
-        // });
+        
       
         const searchedUsers = users.filter((searchRes) =>
             searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
-            )
-        // const genderSearch = searchedUsers.filter()
-
+             || searchRes.gender.toLowerCase().includes(this.state.gender.toLowerCase()) 
+            //|| searchRes.location.country.toLowerCase().includes(this.state.country.toLowerCase())
+        )
         const filteredUsers = searchedUsers.map((filteredUser, i) => {
-              return(
-                  <div key={i}>
-                      <UserComponent name={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} 
-                      image={filteredUser.picture.medium} address={filteredUser.location.street.number + ' ' + filteredUser.location.street.name + ', ' + filteredUser.location.city + ', ' + filteredUser.location.state} 
-                      email={filteredUser.email} phone={filteredUser.phone}
+             // console.log(searchedUsers, 'searched Users')
+          return(
+            <div key={i}>
+                <UserComponent name={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} 
+                image={filteredUser.picture.medium} address={filteredUser.location.street.number + ' ' + filteredUser.location.street.name + ', ' + filteredUser.location.city + ', ' + filteredUser.location.state} 
+                email={filteredUser.email} phone={filteredUser.phone}
 
-                      photo={filteredUser.picture.large} username={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} old={filteredUser.dob.age} home={filteredUser.location.street.number + ' ' + filteredUser.location.street.name + ', ' + filteredUser.location.city + ', ' + filteredUser.location.state}
-                      eAddress={filteredUser.email} created={filteredUser.registered.date} phoneNo={filteredUser.phone} cellNo={filteredUser.cell}
-                      />
-                  </div>
-              )
-          })
-
-              // const searched = searchedUsers.filter((selectedCountry) => 
-              // selectedCountry.location.country.toLowerCase().includes(this.state.dropDown.toLowerCase()) )
-              
-              // searched.map((selected, i) => {
-              //   return(
-              //     <div key={i}>
-              //             <UserComponent name={selected.name.title + ' ' + selected.name.first + ' ' + selected.name.last} 
-              //             image={selected.picture.medium} address={selected.location.street.number + ' ' + selected.location.street.name + ', ' + selected.location.city + ', ' + selected.location.state} 
-              //             email={selected.email} phone={selected.phone}
-    
-              //             photo={selected.picture.large} username={selected.name.title + ' ' + selected.name.first + ' ' + selected.name.last} old={selected.dob.age} home={selected.location.street.number + ' ' + selected.location.street.name + ', ' + selected.location.city + ', ' + selected.location.state}
-              //             eAddress={selected.email} created={selected.registered.date} phoneNo={selected.phone} cellNo={selected.cell}
-              //             />
-              //         </div>
-              //   ); 
-              // })
-            
+                photo={filteredUser.picture.large} username={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} old={filteredUser.dob.age} home={filteredUser.location.street.number + ' ' + filteredUser.location.street.name + ', ' + filteredUser.location.city + ', ' + filteredUser.location.state}
+                eAddress={filteredUser.email} created={filteredUser.registered.date} phoneNo={filteredUser.phone} cellNo={filteredUser.cell}
+                />
+            </div>
+          )
+        })
         
-
-      
         
-       const country = currentUsers.map((user, i) => {
-         return(
-            <option key={i}>
-                {user.location.country}
-            </option>
-         )
-       })
 
 
         let renderPrevBtn = null;
@@ -222,7 +180,6 @@ handleDownload = async(event)=>{
               <div className="Onboarding">
             <div className="container">
                 <div className="welcome-name">Hello, User</div>
-                    {/* <p id="name">Hello, Emerald</p> */}
                 <div className="welcome-text">Welcome to your dashboard, kindly sort through the user base</div>
                 <form onSubmit={this.onSearchSubmit}>
                     <input className="search" type="text" onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
@@ -231,19 +188,19 @@ handleDownload = async(event)=>{
                 <div className="show-users">Show Users</div>
                 <div className="gender-section">
                     <div className="gender-container">
-                        <button  className="gender">
+                        <button value='' onClick={(e) => this.handleGender(e)} className="gender" name="all">
                         <i  class="white users big icon" />
                         </button>
                         <p>All Users</p>
                     </div>
                     <div className="gender-container">
-                        <button className="gender">
+                        <button onClick={(e) => this.handleGender(e)} value='male' name="male" className="gender">
                             <i  class="white male big icon" />
                         </button>
                         <p>Male Users</p>
                     </div>
                     <div className="gender-container">
-                        <button className="gender">
+                        <button onClick={(e) => this.handleGender(e)} value='female' name="female" className="gender">
                         <i  class="white female big icon" />
                         </button>
                         <p>Female Users</p>
@@ -258,11 +215,11 @@ handleDownload = async(event)=>{
                     <form onSubmit={this.onSearchSubmit}>
                       <input className="search-bar" type="text"  onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
                     </form>
-                    <select  className="country"
+                    <select  className="country" value={this.state.dropDown}
                         onChange={(e) => this.setState({dropDown: e.target.value})}
                     >
                       <option>country</option>
-                        {country}
+                        {/* {country} */}
                     </select>
                     <div className="switch-container">
                       <div  className={`${this.state.switchOn ? "switch" : "switch-one"}`}>
