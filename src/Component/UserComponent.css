@@ -156,6 +156,9 @@ padding-right: 1rem;
     cursor: pointer;
     padding-left: 0.1rem;
 }
+.footer-button:hover{
+    background-color: rgb(27, 124, 115);
+}
 .footer-ico{
     font-size: 1.5rem;
     justify-self: center;

@@ -54,7 +54,6 @@ class UserComponent extends React.Component {
                             </div>
                         </div>
                         <div onClick={this.handleToggleCardView} className="footer-button">
-                            {/* <i  class="white arrow right small icon" /> */}
                             <BsArrowRight className="footer-ico" />
                         </div>
                     </div>

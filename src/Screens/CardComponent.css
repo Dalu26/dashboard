@@ -69,10 +69,10 @@
     }
     .search{
         height: 50px;
-        width: 28.438rem;
+        width: 100%;
         background-color: #3C3F54;
         border: 1px solid #3C3F54;
-        background-image: url('https://github.githubassets.com/images/search-key-slash.svg') #fff no-repeat;
+        background-image: url('../assets/search.svg') #FFF no-repeat;
         border-radius: 1.2rem;
         color: #fff;
         background-position-x: 5%;
