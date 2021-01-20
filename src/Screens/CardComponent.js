@@ -152,26 +152,26 @@ class CardComponent extends React.Component {
 
         let renderPrevBtn = null;
          if(isPrevBtnActive === 'disabled') {
-             renderPrevBtn = <button id="btnPrev" className="prev">
-                <i class="black angle left  icon" />
-             </button>
+             renderPrevBtn = <div id="btnPrev" className="prev">
+                <i class=" angle left  icon" />
+             </div>
          }
          else{
-            renderPrevBtn = <button id="btnPrev" onClick={this.btnPrevClick} className="prev">
-              <i class="left angle left  icon" />
-            </button>
+            renderPrevBtn = <div id="btnPrev" onClick={this.btnPrevClick} className="prev">
+              <i class=" black left angle left  icon" />
+            </div>
          }
 
         let renderNextBtn = null;
          if(isNextBtnActive === 'disabled') {
-             renderNextBtn = <button id="btnNext" className="next">
+             renderNextBtn = <div id="btnNext" className="next">
                <i class="white angle right icon" />
-             </button>
+             </div>
          }
          else{
-          renderNextBtn = <button  id="btnNext" onClick={this.btnNextClick} className="next">
+          renderNextBtn = <div  id="btnNext" onClick={this.btnNextClick} className="next">
                 <i class="white angle right  icon" />    
-            </button>
+            </div>
          }
 
         return (

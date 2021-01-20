@@ -1,4 +1,7 @@
 import React from 'react';
+import { BiEnvelope } from 'react-icons/bi';
+import { FiPhoneCall } from 'react-icons/fi';
+import {BsArrowRight} from 'react-icons/bs';
 import './UserComponent.css';
 import UserDetails from '../Screens/UserDetails';
 
@@ -33,22 +36,27 @@ class UserComponent extends React.Component {
                             <div className="address">{address}</div>
                             <div className="footer">
                                 <div className="footer-email-div">
-                                        <i class="grey mail  icon" />
+                                        <div className="email-icon">
+                                            <BiEnvelope />
+                                        </div>
                                     <div className="footer-email">
                                         {email}
                                     </div>
                                 </div>
                                 <div className="footer-phone-div">
-                                        <i class="grey phone flipped  icon" />
+                                            <div className="phone-icon">
+                                                <FiPhoneCall />
+                                            </div>
                                     <div className="footer-phone">
                                         {phone}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button onClick={this.handleToggleCardView} className="footer-button">
-                            <i  class="white arrow right small icon" />
-                        </button>
+                        <div onClick={this.handleToggleCardView} className="footer-button">
+                            {/* <i  class="white arrow right small icon" /> */}
+                            <BsArrowRight className="footer-ico" />
+                        </div>
                     </div>
             </div>
             <div className={`${!this.state.isHidden ? "userDetail-card-one" : "userDetail-card"} ${!this.state.handleToggleCardView ? '' : 'accordion'}`}>
