@@ -146,7 +146,7 @@
     color: #262A41;
     opacity: 0.52;
 }
-@media(max-width: 500px){
+@media(max-width: 812px){
     .user-container{
         margin-bottom: 6rem;
     }

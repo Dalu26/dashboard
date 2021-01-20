@@ -177,17 +177,17 @@ class CardComponent extends React.Component {
         return (
             <div className="App">
               <div className="Onboarding">
-            <div className="container">
-                <div className="welcome-name">Hello, User</div>
-                <div className="welcome-text">Welcome to your dashboard, kindly sort through the user base</div>
-                <form onSubmit={this.onSearchSubmit}>
-                    <input className="search" type="text" onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
-                  </form>
+                <div className="container">
+                  <div className="welcome-name">Hello, User</div>
+                  <div className="welcome-text">Welcome to your dashboard, kindly sort through the user base</div>
+                  <form onSubmit={this.onSearchSubmit}>
+                      <input className="search" type="text" onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
+                    </form>
 
-                <div className="show-users">Show Users</div>
-                <GenderButton genders={gender} filterUsers={filterUsers}/>
+                  <div className="show-users">Show Users</div>
+                  <GenderButton genders={gender} filterUsers={filterUsers}/>
+              </div>
             </div>
-        </div>
                 <div className="CardComponent">
                   <div className="header">{activeGender}</div>
                   <div className="filter">Filter By</div>

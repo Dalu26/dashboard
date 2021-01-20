@@ -72,7 +72,7 @@
         width: 100%;
         background-color: #3C3F54;
         border: 1px solid #3C3F54;
-        background-image: url('../assets/search.svg') #FFF no-repeat;
+        background-image: url('../assets/search.svg') #000 no-repeat;
         border-radius: 1.2rem;
         color: #fff;
         background-position-x: 5%;
@@ -295,7 +295,7 @@
     cursor: pointer;
     border: 0.1px solid #262A41;
 }
-@media(max-width: 500px){
+@media(max-width: 812px){
     .App {
         flex-direction: column;
         padding-right: 0;
@@ -305,17 +305,12 @@
         font-size: 1.5rem;
     }
     .search{
-        width: 19.438rem;
+        width: 100%;
     }
     .container{
-        margin: 2rem;
-    }
-    .gender-container{
-        margin-right: 1.4rem;
-    }
-    .gender{
-        height: 3rem;
-        width: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        margin-top: 2rem;
     }
     .CardComponent{
         margin: 0.9rem;

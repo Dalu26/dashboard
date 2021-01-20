@@ -164,7 +164,7 @@ padding-right: 1rem;
     justify-self: center;
     align-self: center;
 }
-@media(max-width: 500px){
+@media(max-width: 812px){
     .footer-button{
         width: 1.6rem;
         height: 1.6rem;

@@ -13,7 +13,7 @@
     color: #fff;
   }
 
-@media (max-width: 500px) {
+@media (max-width: 812px) {
   .App {
     flex-direction: column;
     padding-right: none;
