@@ -1,7 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import { CSVLink } from "react-csv";
+//import { FiSearch } from 'react-icons/fi';
+import { IoIosCloudDownload } from 'react-icons/io';
 import './CardComponent.css';
 import UserComponent from '../Component/UserComponent';
+import GenderButton from '../Component/GenderButton';
 
 
 class CardComponent extends React.Component {
@@ -9,14 +13,13 @@ class CardComponent extends React.Component {
         super(props);
         this.state = {
           users: [],
-          location: [],
           search: '',
-          dropDown: '',
-          gender: '',
+          gender: [],
+          activeGender: [],
+          sortButton: [],
           isHidden: true,
-          switchOn: true,
           currentPage: 1,
-          usersPerPage: 12,
+          usersPerPage: 10,
           upperPageBound: 3,
           lowerPageBound: 0,
           isPrevBtnActive: 'disabled',
@@ -30,109 +33,101 @@ class CardComponent extends React.Component {
       }
 
     fetchUsers = async () =>{
-      const response = await axios.get('https://randomuser.me/api/?page=6&results=10&seed=123')
+      const response = await axios.get('https://randomuser.me/api/?page=6&results=20&seed=123')
       const users = response.data.results;
       this.setState({users})
-    }
+      this.setState({sortButton: users})
 
+      let userGender = users.map(user => user.gender);
+      userGender = ["all", ...new Set(userGender)]
+      this.setState({gender: userGender});
+      console.log(userGender, 'userGender')
+    }
 
     onSearchSubmit=(event)=> {
       event.preventDefault();
-
-      //  const {users} = this.state;
-      //   const result = users.filter((user) =>
-      //   user.name.first.toLowerCase().includes(this.state.search.toLowerCase())
-      //   )
-
-      // const final = result;
-      //  let i = 0;
-      //  while(i < final.length){
-      //    console.log(final[i], 'final');
-      //    i+= 1;
-      //  }
-      //  console.log(final, 'final search')
     };
 
+    handleClick =(event)=> {
+      let userid = Number(event.target.id);
+      this.setState({
+        currentPage: userid
+      });
+      this.setPrevAndNextBtnClass(userid);
+    }
 
-handleClick =(event)=> {
-  let userid = Number(event.target.id);
-  this.setState({
-    currentPage: userid
-  });
-   this.setPrevAndNextBtnClass(userid);
-}
-setPrevAndNextBtnClass(userid) {
-  let totalPage = Math.ceil(this.state.users.length / this.state.usersPerPage);
-  this.setState({isNextBtnActive: 'disabled'});
-  this.setState({isPrevBtnActive: 'disabled'});
-  if(totalPage === userid && totalPage > 1){
-      this.setState({isPrevBtnActive: ''});
-  }
-  else if(userid === 1 && totalPage > 1){
-      this.setState({isNextBtnActive: ''});
-  }
-  else if(totalPage > 1){
-      this.setState({isNextBtnActive: ''});
-      this.setState({isPrevBtnActive: ''});
-  }
-}
-btnPrevClick = () => {
-  if((this.state.currentPage -1)%this.state.pageBound === 0 ){
-      this.setState({upperPageBound: this.state.upperPageBound - this.state.pageBound});
-      this.setState({lowerPageBound: this.state.lowerPageBound - this.state.pageBound});
-  }
-  let userid = this.state.currentPage - 1;
-  this.setState({ currentPage : userid});
-  this.setPrevAndNextBtnClass(userid);
-}
-btnNextClick =() => {
-  if((this.state.currentPage +1) > this.state.upperPageBound ){
-      this.setState({upperPageBound: this.state.upperPageBound + this.state.pageBound});
-      this.setState({lowerPageBound: this.state.lowerPageBound + this.state.pageBound});
-  }
-  let userid = this.state.currentPage + 1;
-  this.setState({ currentPage : userid});
-  this.setPrevAndNextBtnClass(userid);
-}
 
-handleToggleCardView =()=>{
-  this.setState({isHidden: !this.state.isHidden})
-}
+    setPrevAndNextBtnClass(userid) {
+      let totalPage = Math.ceil(this.state.users.length / this.state.usersPerPage);
+      this.setState({isNextBtnActive: 'disabled'});
+      this.setState({isPrevBtnActive: 'disabled'});
+      if(totalPage === userid && totalPage > 1){
+          this.setState({isPrevBtnActive: ''});
+      }
+      else if(userid === 1 && totalPage > 1){
+          this.setState({isNextBtnActive: ''});
+      }
+      else if(totalPage > 1){
+          this.setState({isNextBtnActive: ''});
+          this.setState({isPrevBtnActive: ''});
+      }
+    }
 
-handleSwitch =()=> {
-  this.setState({switchOn: !this.state.switchOn})
-}
 
-handleGender =(e)=> {
-  console.log( e.target.value, 'value first');
-  const btn = e.target;
-  this.setState({gender: btn.value}, () => {
-    console.log(this.state.gender, 'this.setstate call back')
-  });
-  console.log(btn, 'btn 2nd');
-  console.log(this.state.gender, 'gender last')
-}
+    btnPrevClick = () => {
+      if((this.state.currentPage -1)%this.state.pageBound === 0 ){
+          this.setState({upperPageBound: this.state.upperPageBound - this.state.pageBound});
+          this.setState({lowerPageBound: this.state.lowerPageBound - this.state.pageBound});
+      }
+      let userid = this.state.currentPage - 1;
+      this.setState({ currentPage : userid});
+      this.setPrevAndNextBtnClass(userid);
+    }
 
-handleDownload = async(event)=>{
-  await axios.get('https://randomuser.me/api/?results=50&format=csv&dl')
-};
 
+    btnNextClick =() => {
+      if((this.state.currentPage +1) > this.state.upperPageBound ){
+          this.setState({upperPageBound: this.state.upperPageBound + this.state.pageBound});
+          this.setState({lowerPageBound: this.state.lowerPageBound + this.state.pageBound});
+      }
+      let userid = this.state.currentPage + 1;
+      this.setState({ currentPage : userid});
+      this.setPrevAndNextBtnClass(userid);
+    }
+
+
+    handleToggleCardView =()=>{
+      this.setState({isHidden: !this.state.isHidden})
+    }
 
 
     render(){
-        const { users, currentPage, usersPerPage, isPrevBtnActive,isNextBtnActive } = this.state;
+        const { users, gender, sortButton, activeGender, currentPage, usersPerPage, isPrevBtnActive,isNextBtnActive } = this.state;
         const indexOfLastUser = currentPage * usersPerPage;
         const indexOfFirstUser = indexOfLastUser - usersPerPage;
         const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-        
-      
-        const searchedUsers = users.filter((searchRes) =>
+
+        const filterUsers = (gender) => {
+          const genderUsers = sortButton.filter(user => (user.gender === gender))
+          
+          this.setState({users: genderUsers});
+          this.setState({activeGender: `${gender} Users`}); 
+          // setCurrentPage(1)
+
+          if(gender === "all"){
+            this.setState({users: sortButton})
+          this.setState({activeGender: 'All Users'})
+          //setCurrentPage(1)
+          }
+        }
+
+
+        const searchedUsers = currentUsers.filter((searchRes) =>
             searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
-             || searchRes.gender.toLowerCase().includes(this.state.gender.toLowerCase()) 
-            //|| searchRes.location.country.toLowerCase().includes(this.state.country.toLowerCase())
+             
         )
         const filteredUsers = searchedUsers.map((filteredUser, i) => {
-             // console.log(searchedUsers, 'searched Users')
+            
           return(
             <div key={i}>
                 <UserComponent name={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} 
@@ -146,7 +141,13 @@ handleDownload = async(event)=>{
           )
         })
         
-        
+        const printUsersAsCSV = users.map((user) => {
+          const {gender, name:{title, first, last}, location:{street:{number, name}, city, state, country, postcode, coordinates:{latitiude, longitude}, timezone:{offset, description}}, email, login:{username, password}, dob:{age}, phone, cell, registered:{date}, nat} = user;
+          return (
+             {gender, title, first, last, number, name, city, state, country, postcode, latitiude, longitude, offset, description, email, username, password, phone, cell, age, date, nat}
+          )
+      })
+      const csvData = printUsersAsCSV;
 
 
         let renderPrevBtn = null;
@@ -173,8 +174,6 @@ handleDownload = async(event)=>{
             </button>
          }
 
-
-
         return (
             <div className="App">
               <div className="Onboarding">
@@ -186,54 +185,22 @@ handleDownload = async(event)=>{
                   </form>
 
                 <div className="show-users">Show Users</div>
-                <div className="gender-section">
-                    <div className="gender-container">
-                        <button value='' onClick={(e) => this.handleGender(e)} className="gender" name="all">
-                        <i  class="white users big icon" />
-                        </button>
-                        <p>All Users</p>
-                    </div>
-                    <div className="gender-container">
-                        <button onClick={(e) => this.handleGender(e)} value='male' name="male" className="gender">
-                            <i  class="white male big icon" />
-                        </button>
-                        <p>Male Users</p>
-                    </div>
-                    <div className="gender-container">
-                        <button onClick={(e) => this.handleGender(e)} value='female' name="female" className="gender">
-                        <i  class="white female big icon" />
-                        </button>
-                        <p>Female Users</p>
-                    </div>
-                </div>
+                <GenderButton genders={gender} filterUsers={filterUsers}/>
             </div>
         </div>
                 <div className="CardComponent">
-                  <div className="header">All Users</div>
+                  <div className="header">{activeGender}</div>
                   <div className="filter">Filter By</div>
                   <div className="search-container">
                     <form onSubmit={this.onSearchSubmit}>
                       <input className="search-bar" type="text"  onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
                     </form>
-                    <select  className="country" value={this.state.dropDown}
-                        onChange={(e) => this.setState({dropDown: e.target.value})}
-                    >
-                      <option>country</option>
-                        {/* {country} */}
-                    </select>
-                    <div className="switch-container">
-                      <div  className={`${this.state.switchOn ? "switch" : "switch-one"}`}>
-                        <div onClick={this.handleSwitch} className="inner-switch"></div>
-                      </div>
-                      <div className="switch-country">Show Country</div>
-                    </div>
                   </div>
                     <div className="accordion">
-                      {/* {user} */}
                       {filteredUsers}
                     </div>
                     <div className="footer-section">
-                      <button className="download" onClick={this.handleDownload}>Download Results</button>
+                      <CSVLink className="list__download-btn" data={csvData}> <IoIosCloudDownload className="download-icon"/> Download Results</CSVLink>
                       <div className="pagination">
                         {renderPrevBtn}
                         {renderNextBtn}

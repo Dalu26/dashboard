@@ -140,7 +140,7 @@
     border-radius: 1rem;
     padding-left: 3rem;
     padding-top: 1.5rem;
-    padding-right: 2.5rem;
+    padding-right: 3rem;
     opacity: 1;
     width: 100%;
     height: 100%;
@@ -180,6 +180,7 @@
     font-weight: bold;
     letter-spacing: -0.04px;
     color: #262A41;
+    text-transform: capitalize;
     opacity: 1;
     margin-top: 1rem;
 }
@@ -194,13 +195,12 @@
     margin-bottom: 1rem;
 }
 .search-container{
-    display: flex;
-    flex-direction: row;
+    width: 100%;
 }
 .search-bar 
 {
-    height: 2.3rem;        
-    width: 19rem;
+    height: 2.5rem;        
+    width: 100%;
     background: #E2E2EA url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat padding-box;
     border: 1px solid #E2E2EA;
     border-radius: 1.8rem;
@@ -208,7 +208,7 @@
     background-position-x: 5%;
     background-position-y: center;
     color: #3C3F54;
-    padding-left: 3rem;
+    padding-left: 4.2rem;
     outline: none;
 }
 .search-bar::placeholder {
@@ -218,80 +218,6 @@
     font-size: 0.8rem;
     letter-spacing: -0.02px;
     color: #3C3F54;
-}
-.country{
-    background: #E2E2EA 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2EA;
-    border-radius: 35px;
-    height: 2.3rem;
-    width: 10rem;
-    color: #262A41;
-    font-weight: 600;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-size: 0.8rem;
-    letter-spacing: -0.02;
-    border-radius: 1.8rem;
-    margin-bottom: 0.5rem;
-    margin-left: 1rem;
-    outline: none;
-}
-.switch-container{
-    width: 10rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-}
-.switch{
-    display: flex;
-    flex-direction: row;
-    width: 2.5rem;
-    height: 1.3rem;
-    background: #30BBB5 0% 0% no-repeat padding-box;
-    border-radius: 0.9rem;
-    margin-left: 1rem;
-    margin-right: 0.4rem;
-    cursor: pointer;
-    align-content: center;
-    justify-content: flex-end;
-}
-.switch-one {
-    display: flex;
-    flex-direction: row;
-    width: 2.5rem;
-    height: 1.3rem;
-    background: #30BBB5 0% 0% no-repeat padding-box;
-    border-radius: 0.9rem;
-    margin-left: 1rem;
-    margin-right: 0.4rem;
-    align-content: center;
-    cursor: pointer;
-    justify-content: flex-start;
-}
-.inner-switch{
-    outline: none;
-    height: 1rem;
-    width: 1rem;
-    border-radius: 50%;
-    border: 0.2px solid #fff;
-    cursor: pointer;
-    color: #fff;
-    background-color: #fff;
-    align-self: center;
-    margin-right: 1.8px;
-    margin-left: 1.5px;
-}
-
-.switch-country{
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    font-size: 0.7rem;
-    letter-spacing: -0.42px;
-    color: #000000;
-    opacity: 0.62;
-    text-decoration: none;
 }
 .footer-section{
     display: flex;
@@ -304,23 +230,36 @@
     margin-top: 1rem;
     padding-bottom: 1rem;
 }
-.download{
-    background-color: #7946C1;
-    display: inline-block;
-    border-radius: 35px;
-    border: 1px solid #7946C1;
-    height: 2.6rem;
-    align-self: center;
-    align-content: center;
-    justify-content: center;
-    cursor: pointer;
-    justify-self: flex-start;
-    font-weight: 600;
-    font-size: 0.7rem;
-    font-family: Poppins, sans-serif;
-    letter-spacing: -0.19px;
-    color: #FFFFFF;
+
+.list__download-btn {
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    color: white;
+    border: none;
     outline: none;
+    background-color:  rgb(89, 40, 148);
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.download-icon {
+    padding-right: 10px;
+    height: 23px !important;
+    width: 23px !important;
+    transition: 2000ms;
+}
+
+.list__download-btn:hover {
+    background-color:  rgb(65, 28, 109);
+    box-shadow: 0 0 10px #333;
+}
+
+.list__download-btn:hover .download-icon {
+    transform: rotate(-30deg);
 }
 .pagination{
     display: flex;
@@ -365,9 +304,6 @@
     .name{
         font-size: 1.5rem;
     }
-    .gender-section{
-        margin: 0.5rem;
-    }
     .search{
         width: 19.438rem;
     }
@@ -399,8 +335,7 @@
         margin-top: 0.5rem;
     }
     .search-bar{
-        width: 7rem;
-        padding-left: 1.8rem;
+        padding-left: 3rem;
     }
     .country{
         width: 6rem;

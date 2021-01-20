@@ -1,0 +1,50 @@
+.users__buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+}
+
+.users__btn-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    align-items: center;
+}
+
+.users__btn-container p {
+    font-weight: 300;
+    font-size: 10px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.users__btn {
+    padding: 25px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(202, 34, 146);
+    margin-bottom: 15px;
+    transition: 700ms;
+}
+
+.users__btn:focus {
+    transform: scale(1.2);
+}
+
+.users__btn-container:nth-child(2) .users__btn {
+    background-color: rgb(33, 187, 172);
+}
+
+.users__btn-container:nth-child(3) .users__btn {
+    background-color: rgb(89, 40, 148);
+}
+
+.icon {
+    height: 30px !important;
+    width: 30px !important;
+}
