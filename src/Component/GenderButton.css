@@ -3,7 +3,6 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    /* flex-wrap: wrap; */
 }
 
 .users__btn-container {
@@ -32,6 +31,58 @@
     transition: 700ms;
 }
 
+.usersbtn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.usersbtn {
+    padding: 25px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(202, 34, 146);
+    margin-bottom: 15px;
+    transition: 700ms;
+}
+.usersbtn-one {
+    padding: 25px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(33, 187, 172);
+    margin-bottom: 15px;
+    transition: 700ms;
+}
+.usersbtn-two {
+    padding: 25px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(89, 40, 148);
+    margin-bottom: 15px;
+    transition: 700ms;
+}
+.button-container{
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    font-size: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.button-container p {
+    font-weight: 300;
+    font-size: 10px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
 .users__btn:focus {
     transform: scale(1.2);
 }

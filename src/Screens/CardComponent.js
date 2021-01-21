@@ -21,18 +21,18 @@ class CardComponent extends React.Component {
           loading: true,
           currentPage: 1,
           usersPerPage: 10,
-          upperPageBound: 3,
-          lowerPageBound: 0,
           isPrevBtnActive: 'disabled',
           isNextBtnActive: '',
           pageBound: 3,
         };
       }
 
+      //Fetch Users
       componentDidMount() {
         this.fetchUsers();
       }
 
+      //Api Call to fetch users
     fetchUsers = async () =>{
       try{
         const response = await axios.get('https://randomuser.me/api/?page=6&results=20&seed=123')
@@ -50,11 +50,13 @@ class CardComponent extends React.Component {
       this.setState({loading: false})
     }
 
-
+    //Search event
     onSearchSubmit=(event)=> {
       event.preventDefault();
     };
 
+
+    //Pagination 
     handleClick =(event)=> {
       let userid = Number(event.target.id);
       this.setState({
@@ -62,7 +64,6 @@ class CardComponent extends React.Component {
       });
       this.setPrevAndNextBtnClass(userid);
     }
-
 
     setPrevAndNextBtnClass(userid) {
       let totalPage = Math.ceil(this.state.users.length / this.state.usersPerPage);
@@ -80,29 +81,21 @@ class CardComponent extends React.Component {
       }
     }
 
-
     btnPrevClick = () => {
-      // if((this.state.currentPage -1)%this.state.pageBound === 0 ){
-      //     this.setState({upperPageBound: this.state.upperPageBound - this.state.pageBound});
-      //     this.setState({lowerPageBound: this.state.lowerPageBound - this.state.pageBound});
-      // }
       let userid = this.state.currentPage - 1;
       this.setState({ currentPage : userid});
       this.setPrevAndNextBtnClass(userid);
     }
 
-
     btnNextClick =() => {
-      //if((this.state.currentPage +1) > this.state.upperPageBound ){
-          // this.setState({upperPageBound: this.state.upperPageBound + this.state.pageBound});
-          // this.setState({lowerPageBound: this.state.lowerPageBound + this.state.pageBound});
-     // }
       let userid = this.state.currentPage + 1;
       this.setState({ currentPage : userid});
       this.setPrevAndNextBtnClass(userid);
     }
+    //Pagination ends
 
 
+    //Card view toggle
     handleToggleCardView =()=>{
       this.setState({isHidden: !this.state.isHidden})
     }
@@ -114,9 +107,9 @@ class CardComponent extends React.Component {
         const indexOfFirstUser = indexOfLastUser - usersPerPage;
         const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
+        //Users button sort
         const filterUsers = (gender) => {
           const genderUsers = sortButton.filter(user => (user.gender === gender))
-          
           this.setState({users: genderUsers});
           this.setState({activeGender: `${gender} Users`});
 
@@ -126,13 +119,12 @@ class CardComponent extends React.Component {
           }
         }
 
-
         const searchedUsers = currentUsers.filter((searchRes) =>
             searchRes.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || searchRes.name.last.toLowerCase().includes(this.state.search.toLowerCase())
              
         )
+
         const filteredUsers = searchedUsers.map((filteredUser, i) => {
-            
           return(
             <div key={i}>
                 <UserComponent name={filteredUser.name.title + ' ' + filteredUser.name.first + ' ' + filteredUser.name.last} 
@@ -145,7 +137,9 @@ class CardComponent extends React.Component {
             </div>
           )
         })
-        
+        //Users sort ends
+
+        //Download data as CSV
         const printUsersAsCSV = users.map((user) => {
           const {gender, name:{title, first, last}, location:{street:{number, name}, city, state, country, postcode, coordinates:{latitiude, longitude}, timezone:{offset, description}}, email, login:{username, password}, dob:{age}, phone, cell, registered:{date}, nat} = user;
           return (
@@ -154,7 +148,7 @@ class CardComponent extends React.Component {
       })
       const csvData = printUsersAsCSV;
 
-
+        //Pagination buttons
         let renderPrevBtn = null;
          if(isPrevBtnActive === 'disabled') {
              renderPrevBtn = <div id="btnPrev" className="prev">
@@ -178,6 +172,11 @@ class CardComponent extends React.Component {
                 <i class="white angle right  icon" />    
             </div>
          }
+         //Pagination button ends here
+
+
+
+
 
         return (
             <div className="App">
@@ -193,11 +192,12 @@ class CardComponent extends React.Component {
                     </form>
 
                   <div className="show-users">Show Users</div>
-                  <GenderButton genders={gender} loading={loading} filterUsers={filterUsers}/>
+                  <GenderButton genders={gender} activeGender={activeGender.length} loading={loading} filterUsers={filterUsers}/>
               </div>
             </div>
+
                 <div className="CardComponent">
-                  <div className="header">{gender.length === 0 && "All Users"}{activeGender}</div>
+                  <div className="header">{activeGender.length === 0 && "All Users"}{activeGender}</div>
                   <div className="filter">Filter By</div>
                   <div className="search-container">
                     <form onSubmit={this.onSearchSubmit}>

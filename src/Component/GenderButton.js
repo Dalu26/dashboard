@@ -3,26 +3,25 @@ import './GenderButton.css';
 import { FaMale } from 'react-icons/fa';
 import { FaFemale } from 'react-icons/fa';
 import { HiUserGroup } from 'react-icons/hi';
-import allGender from './StaticGender';
 
-function GenderButton({genders, filterUsers, loading}) {
-    const Gender = allGender.results;
-    console.log(Gender, 'GEnder')
+function GenderButton({genders, filterUsers, activeGender, loading}) {
     return (
         <div>
-            {loading && <div className="users__buttons" data-testid="gender-buttons" >
-                {Gender.map((gender, i) =>{
-                    return (
-                    <div className="users__btn-container" key={i}>
-                        <button className="users__btn" >
-                            {gender.name === "all" && <i class="spinner pink loading fitted icon"></i>}
-                            {gender.name === "male" &&<i class="notched teal circle loading fitted  icon"></i>}
-                            {gender.name === "female" &&<i class="asterisk purple loading fitted icon"></i>}                     
-                        </button>                   
-                        <p>{gender.name} users</p>
+            {(activeGender === 0 && loading) &&  <div className="users__buttons" data-testid="gender-buttons" >
+                    <div className="usersbtn-container" >
+                        <div className="button-container">
+                            <button className="usersbtn"> <HiUserGroup className="icon" /></button>
+                            <p>All users</p>
+                        </div>
+                        <div className="button-container">
+                            <button className="usersbtn-one"><FaMale className="icon" /></button>
+                            <p>Male users</p>
+                        </div>
+                        <div className="button-container">
+                            <button className="usersbtn-two"><FaFemale className="icon" /></button>
+                            <p>Female users</p>
+                        </div>
                     </div>
-                    )
-                })}
             </div>}  
             <div className="users__buttons" data-testid="gender-buttons">
                 {genders.map((gender, index) => {
