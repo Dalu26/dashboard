@@ -20,9 +20,9 @@ class UserDetails extends React.Component {
       <div className="user-container">
         <button onClick={onMouseClick} className="back-to-results-btn"> < BsArrowLeftShort className="back-arrow-icon"/> RESULTS</button>
           <div className="user-profile">
-              <div className="profile-img">
-                <img className="profile-img-large" alt="profile" src={photo} height="100%" width="100%" />
-              </div>
+                <div className="profile-img">
+                  <img className="profile-img-large" alt="profile" src={photo} height="100%" width="100%" />
+                </div>
               <div className="profile-details">
                   <div className="bio">
                       <div className="bio-name">{username},</div>

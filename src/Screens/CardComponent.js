@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { CSVLink } from "react-csv";
-//import { FiSearch } from 'react-icons/fi';
+import { FiSearch } from 'react-icons/fi';
 import { IoIosCloudDownload } from 'react-icons/io';
 import './CardComponent.css';
 import UserComponent from '../Component/UserComponent';
@@ -178,10 +178,13 @@ class CardComponent extends React.Component {
             <div className="App">
               <div className="Onboarding">
                 <div className="container">
-                  <div className="welcome-name">Hello, User</div>
+                  <div className="welcome-name">Hello, <strong>Emerald</strong></div>
                   <div className="welcome-text">Welcome to your dashboard, kindly sort through the user base</div>
                   <form onSubmit={this.onSearchSubmit}>
-                      <input className="search" type="text" onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
+                    <div className="search-form">
+                        <FiSearch className="search-ico"/>
+                        <input className="search" type="text" onChange={(e) => this.setState({search: e.target.value})} placeholder="Find a user" />
+                    </div>
                     </form>
 
                   <div className="show-users">Show Users</div>
@@ -193,7 +196,10 @@ class CardComponent extends React.Component {
                   <div className="filter">Filter By</div>
                   <div className="search-container">
                     <form onSubmit={this.onSearchSubmit}>
-                      <input className="search-bar" type="text"  onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
+                      <div className="search-form-two">
+                        <FiSearch className="search-ico-two" />
+                        <input className="search-bar" type="text"  onChange={(e) => this.setState({search: e.target.value})} placeholder="Find in list" />
+                      </div>
                     </form>
                   </div>
                     <div className="accordion">

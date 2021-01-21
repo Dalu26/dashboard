@@ -11,9 +11,9 @@
       -moz-osx-font-smoothing: grayscale;
       font-size: 16px;
       color: #fff;
-      padding-right: 0.5rem;
-      padding-bottom: 0.5rem;
-      padding-top: 0.6rem;
+      padding-right: 0.2rem;
+      padding-bottom: 0.2rem;
+      padding-top: 0.2rem;
     }
 
 
@@ -35,28 +35,13 @@
         justify-content: center;
         align-items: center;
     }
-    .name-container{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
     .welcome-name{
         color: #fff;
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-family: Poppins, sans-serif;
-        font-weight: 200;
         letter-spacing: -0.05px;
-        margin-right: 11px;
         opacity: 1;
     }
-    /* #name {
-        font-size: 1rem;
-        font-family: Poppins, sans-serif;
-        font-weight: bold;
-        letter-spacing: -0.04px;
-        color: #FFFFFF;
-        opacity: 1;
-    } */
     .welcome-text {
         font-size: 14px;
         font-family: Poppins, sans-serif;
@@ -67,17 +52,29 @@
         margin-top: 1rem;
         margin-bottom: 2rem;
     }
-    .search{
-        height: 50px;
-        width: 100%;
+    .search-form{
+        padding: 10px 20px;
+        border-radius: 15px;
         background-color: #3C3F54;
+        display: flex;
+        align-items: center;
+    }
+    .search-ico{
+        background-color: inherit;
+        color: white;
+        height: 23px !important;
+        width: 23px !important;
+    }
+    .search{
+        height: 40px;
+        width: 100%;
+        background-color: inherit;
         border: 1px solid #3C3F54;
-        background-image: url('../assets/search.svg') #000 no-repeat;
         border-radius: 1.2rem;
         color: #fff;
         background-position-x: 5%;
         background-position-y: center;
-        padding-left: 3.2rem;
+        padding-left: 1rem;
         outline: none;
         font-size: 0.9rem;
     }
@@ -197,18 +194,35 @@
 .search-container{
     width: 100%;
 }
+.search-form-two{
+    padding: 7px 20px;
+    border-radius: 25px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+
+.search-ico-two{
+    background-color: inherit;
+    color: #555;
+    height: 15px !important;
+    width: 15px !important;
+}
+
+
 .search-bar 
 {
-    height: 2.5rem;        
+    height: 2rem;        
     width: 100%;
-    background: #E2E2EA url('https://github.githubassets.com/images/search-key-slash.svg') no-repeat padding-box;
-    border: 1px solid #E2E2EA;
+    padding: 5px;
+    background-color: inherit;
+    border: none;
     border-radius: 1.8rem;
-    margin-bottom: 0.5rem;
     background-position-x: 5%;
     background-position-y: center;
     color: #3C3F54;
-    padding-left: 4.2rem;
     outline: none;
 }
 .search-bar::placeholder {
@@ -254,7 +268,7 @@
 }
 
 .list__download-btn:hover {
-    background-color:  rgb(65, 28, 109);
+    color: #FFF;
     box-shadow: 0 0 10px #333;
 }
 
@@ -328,9 +342,6 @@
     .filter{
         padding-left: 0.5rem;
         margin-top: 0.5rem;
-    }
-    .search-bar{
-        padding-left: 3rem;
     }
     .country{
         width: 6rem;
