@@ -29,8 +29,8 @@
     flex-direction: row;
 }
 .profile-img{
-    width: 12rem;
-    height: 12rem;
+    width: 11rem;
+    height: 11rem;
     border-radius: 50%;
     overflow: hidden;
     background:  0% 0% no-repeat padding-box;
@@ -154,8 +154,8 @@
         margin-bottom: 3rem;
     }
     .profile-img{
-        height: 10rem;
-        width: 10rem;
+        height: 9rem;
+        width: 9rem;
     }
     .profile-details{
         padding-left: 0.9rem;
