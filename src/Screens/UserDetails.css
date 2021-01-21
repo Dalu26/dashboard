@@ -29,22 +29,23 @@
     flex-direction: row;
 }
 .profile-img{
-    width: 12rem;
-    height: 12rem;
+    width: 40%;
+    height: 40%;
     border-radius: 50%;
     overflow: hidden;
-    background: transparent /*url('../Component/profile.png')*/ 0% 0% no-repeat padding-box;
-    border: 6px solid #75D6D1;
+    background:  0% 0% no-repeat padding-box;
+    border: 8px solid #75D6D1;
     opacity: 1;
     justify-content: center;
     align-items: center;
 }
 .profile-img-large{
-    height: 12rem;
-    width: 12rem;
+    height: 100%;
+    width: 100%;
 }
 .profile-details{
-    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+    width: 60%;
 }
 .bio{
     display: flex;
@@ -84,6 +85,7 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: 1rem;
+    width: 90%;
     background: #E2E2EA 0% 0% no-repeat padding-box;
     border: 1px solid #E2E2EA;
     padding-left: 0.4rem;
@@ -109,6 +111,7 @@
     background: #eea8d2 0% 0% no-repeat padding-box;
     margin-bottom: 0.7rem;
     height: 1.9rem;
+    width:  60%;
     font-size: 0.7rem;
     font-weight: 600;
     display: flex;
@@ -148,30 +151,28 @@
 }
 @media(max-width: 812px){
     .user-container{
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
     }
     .profile-img{
-        height: 8rem;
-        width: 8rem;
+        height: 30%;
+        width: 30%;
+        /* justify-content: center;
+        align-content: center; */
     }
     .profile-img-large{
-        height: 8rem;
-        width: 8rem;
+        height: 100%;
+        width: 100%;
     }
     .profile-details{
-        margin-left: 0.9rem;
-    }
-    .bio{
-        flex-direction: column;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+        padding-left: 0.9rem;
+        width: 70%;
     }
     .bio-name{
         font-size: 1.2rem;
         margin-right: 0.2rem;
     }
     .bio-age{
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     .profile-address{
         font-size: 0.8rem;
@@ -180,6 +181,7 @@
     .profile-email{
         height: 1.5rem;
         margin-bottom: 0.5rem;
+        width: 80%;
         border-radius: 6px;
     }
     .email-text{
@@ -190,6 +192,7 @@
         font-size: 0.6rem;
         margin-right: 5rem;
         border-radius: 6px;
+        /* width: 40%; */
     }
     .phone{
         margin-bottom: 0.5rem;

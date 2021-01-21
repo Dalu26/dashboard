@@ -21,7 +21,7 @@ class UserDetails extends React.Component {
         <button onClick={onMouseClick} className="back-to-results-btn"> < BsArrowLeftShort className="back-arrow-icon"/> RESULTS</button>
           <div className="user-profile">
               <div className="profile-img">
-                <img className="profile-img-large" alt="profile" src={photo} height="11rem" width="11rem" />
+                <img className="profile-img-large" alt="profile" src={photo} height="100%" width="100%" />
               </div>
               <div className="profile-details">
                   <div className="bio">
@@ -34,7 +34,7 @@ class UserDetails extends React.Component {
                       <div className="email-text">{eAddress}</div>
                   </div>
                   <div className="joined">
-                        <div>JOINED:</div>
+                        <div>JOINED: </div>
                       <div className="joined-text">
                        {joinedAt}
                       </div>

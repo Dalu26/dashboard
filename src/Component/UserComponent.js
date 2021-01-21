@@ -53,9 +53,9 @@ class UserComponent extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div onClick={this.handleToggleCardView} className="footer-button">
-                            <BsArrowRight className="footer-ico" />
-                        </div>
+                            <div onClick={this.handleToggleCardView} className="footer-button">
+                                <BsArrowRight className="footer-ico" />
+                            </div>
                     </div>
             </div>
             <div className={`${!this.state.isHidden ? "userDetail-card-one" : "userDetail-card"} ${!this.state.handleToggleCardView ? '' : 'accordion'}`}>

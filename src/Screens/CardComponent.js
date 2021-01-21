@@ -41,7 +41,7 @@ class CardComponent extends React.Component {
       let userGender = users.map(user => user.gender);
       userGender = ["all", ...new Set(userGender)]
       this.setState({gender: userGender});
-      console.log(userGender, 'userGender')
+      // console.log(userGender, 'userGender')
     }
 
     onSearchSubmit=(event)=> {
