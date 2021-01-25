@@ -35,7 +35,7 @@ class CardComponent extends React.Component {
       //Api Call to fetch users
     fetchUsers = async () =>{
       try{
-        const response = await axios.get('https://randomuser.me/api/?page=6&results=20&seed=123')
+        const response = await axios.get('https://randomuser.me/api/?page=6&results=60&seed=123')
         const users = response.data.results;
         this.setState({users})
         this.setState({sortButton: users})
