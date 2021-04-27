@@ -182,7 +182,7 @@ class CardComponent extends React.Component {
             <div className="App">
               <div className="Onboarding">
                 <div className="container">
-                  <div className="welcome-name">Hello, <strong>Catherine</strong></div>
+                  <div className="welcome-name">Hello, <strong>Emerald</strong></div>
                   <div className="welcome-text">Welcome to your dashboard, kindly sort through the user base</div>
                   <form onSubmit={this.onSearchSubmit}>
                     <div className="search-form">
